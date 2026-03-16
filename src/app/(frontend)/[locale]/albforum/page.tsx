@@ -33,12 +33,12 @@ export default async function AlbforumPage({
           'from-[#11071f] via-[#16213e] to-[#1e1245]',
         ]
         const placeholderIssues = [
-          { id: 'p1', issueNumber: 1, title: 'ALBFORUM #1', description: { sq: 'Numri 1 i gazetës ALBFORUM', de: 'Ausgabe 1 der ALBFORUM Zeitung', fr: 'Numero 1 du journal ALBFORUM', it: 'Numero 1 del giornale ALBFORUM', en: 'Issue 1 of ALBFORUM newspaper' }[locale] || 'ALBFORUM #1' },
-          { id: 'p2', issueNumber: 2, title: 'ALBFORUM #2', description: { sq: 'Numri 2 i gazetës ALBFORUM', de: 'Ausgabe 2 der ALBFORUM Zeitung', fr: 'Numero 2 du journal ALBFORUM', it: 'Numero 2 del giornale ALBFORUM', en: 'Issue 2 of ALBFORUM newspaper' }[locale] || 'ALBFORUM #2' },
-          { id: 'p3', issueNumber: 3, title: 'ALBFORUM #3', description: { sq: 'Numri 3 i gazetës ALBFORUM', de: 'Ausgabe 3 der ALBFORUM Zeitung', fr: 'Numero 3 du journal ALBFORUM', it: 'Numero 3 del giornale ALBFORUM', en: 'Issue 3 of ALBFORUM newspaper' }[locale] || 'ALBFORUM #3' },
-          { id: 'p4', issueNumber: 4, title: 'ALBFORUM #4', description: { sq: 'Numri 4 i gazetës ALBFORUM', de: 'Ausgabe 4 der ALBFORUM Zeitung', fr: 'Numero 4 du journal ALBFORUM', it: 'Numero 4 del giornale ALBFORUM', en: 'Issue 4 of ALBFORUM newspaper' }[locale] || 'ALBFORUM #4' },
-          { id: 'p5', issueNumber: 5, title: 'ALBFORUM #5', description: { sq: 'Numri 5 i gazetës ALBFORUM', de: 'Ausgabe 5 der ALBFORUM Zeitung', fr: 'Numero 5 du journal ALBFORUM', it: 'Numero 5 del giornale ALBFORUM', en: 'Issue 5 of ALBFORUM newspaper' }[locale] || 'ALBFORUM #5' },
-          { id: 'p6', issueNumber: 6, title: 'ALBFORUM #6', description: { sq: 'Numri 6 i gazetës ALBFORUM', de: 'Ausgabe 6 der ALBFORUM Zeitung', fr: 'Numero 6 du journal ALBFORUM', it: 'Numero 6 del giornale ALBFORUM', en: 'Issue 6 of ALBFORUM newspaper' }[locale] || 'ALBFORUM #6' },
+          { id: 'p1', issueNumber: 1, title: 'ALBFORUM #1', description: `${t('issue')} 1 - ALBFORUM` },
+          { id: 'p2', issueNumber: 2, title: 'ALBFORUM #2', description: `${t('issue')} 2 - ALBFORUM` },
+          { id: 'p3', issueNumber: 3, title: 'ALBFORUM #3', description: `${t('issue')} 3 - ALBFORUM` },
+          { id: 'p4', issueNumber: 4, title: 'ALBFORUM #4', description: `${t('issue')} 4 - ALBFORUM` },
+          { id: 'p5', issueNumber: 5, title: 'ALBFORUM #5', description: `${t('issue')} 5 - ALBFORUM` },
+          { id: 'p6', issueNumber: 6, title: 'ALBFORUM #6', description: `${t('issue')} 6 - ALBFORUM` },
         ]
         const issues = result.docs.length > 0 ? result.docs : placeholderIssues
 
@@ -86,7 +86,7 @@ export default async function AlbforumPage({
                       <div className="relative z-10 w-full pt-8 px-5">
                         <div className="border-b border-white/20 pb-3 mb-3">
                           <div className="text-white/50 text-[10px] tracking-[0.3em] uppercase text-center">
-                            {{ sq: 'Gazeta e Bashkësisë Shqiptare në Zvicër', de: 'Zeitung der Albanischen Gemeinschaft in der Schweiz', fr: 'Journal de la Communaute albanaise en Suisse', it: 'Giornale della Comunita albanese in Svizzera', en: 'Newspaper of the Albanian Community in Switzerland' }[locale]}
+                            {t('newspaper_subtitle')}
                           </div>
                         </div>
                         <div className="text-center">
@@ -100,7 +100,7 @@ export default async function AlbforumPage({
                         </div>
                         <div className="relative text-center">
                           <div className="text-white/60 text-xs tracking-[0.2em] uppercase mb-1">
-                            {{ sq: 'Numri', de: 'Ausgabe', fr: 'Numero', it: 'Numero', en: 'Issue' }[locale]}
+                            {t('issue')}
                           </div>
                           <div className="text-white text-6xl font-black">#{issue.issueNumber}</div>
                         </div>
