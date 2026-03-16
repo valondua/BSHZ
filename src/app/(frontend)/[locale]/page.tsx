@@ -191,17 +191,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="md:col-span-2 relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E41E20] via-[#1B1464] to-[#E41E20]" />
-            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+            <img src="/images/shqiptaret-ne-zvicer-bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
               <h3 className="text-white text-xl md:text-2xl font-bold leading-snug">
-                {locale === 'sq' ? 'Shqipëria dhe Zvicra' : 'Albanien und die Schweiz'}
+                {locale === 'sq' ? 'Shqiptaret në Zvicër' : 'Albaner in der Schweiz'}
               </h3>
-              <p className="text-white/70 text-sm mt-2 max-w-md">
-                {locale === 'sq'
-                  ? 'Forcimi i marrëdhënieve ndërmjet Shqipërisë, Kosovës dhe Zvicrës'
-                  : 'Stärkung der Beziehungen zwischen Albanien, Kosovo und der Schweiz'}
-              </p>
             </div>
           </div>
 
