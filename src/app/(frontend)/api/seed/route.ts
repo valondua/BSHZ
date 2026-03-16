@@ -2,6 +2,28 @@ import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
+export async function PATCH(request: Request) {
+  try {
+    const { secret, collection, id, locale, data } = await request.json()
+    if (secret !== process.env.PAYLOAD_SECRET) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const payload = await getPayload({ config })
+
+    const result = await payload.update({
+      collection,
+      id,
+      locale,
+      data,
+    })
+
+    return NextResponse.json({ success: true, title: result.title })
+  } catch (error) {
+    return NextResponse.json({ error: String(error) }, { status: 500 })
+  }
+}
+
 export async function POST(request: Request) {
   try {
     // Simple auth check
