@@ -39,6 +39,60 @@ export async function PUT(request: Request) {
   }
 }
 
+export async function DELETE(request: Request) {
+  // Repurposed as "create news articles" endpoint
+  try {
+    const { secret, articles } = await request.json()
+    if (secret !== process.env.PAYLOAD_SECRET) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const payload = await getPayload({ config })
+    const results = []
+
+    for (const article of articles) {
+      try {
+        // Check if slug already exists
+        const existing = await payload.find({
+          collection: article.collection || 'news',
+          where: { slug: { equals: article.slug } },
+          limit: 1,
+        })
+
+        if (existing.docs.length > 0) {
+          results.push({ slug: article.slug, status: 'already_exists', id: existing.docs[0].id })
+          continue
+        }
+
+        // Create in Albanian
+        const doc = await payload.create({
+          collection: article.collection || 'news',
+          data: article.sq,
+          locale: 'sq',
+        })
+
+        // Add German translation
+        if (article.de) {
+          await payload.update({
+            collection: article.collection || 'news',
+            id: doc.id,
+            data: article.de,
+            locale: 'de',
+          })
+        }
+
+        results.push({ slug: article.slug, status: 'created', id: doc.id })
+      } catch (e) {
+        results.push({ slug: article.slug, status: 'error', error: String(e).substring(0, 200) })
+      }
+    }
+
+    return NextResponse.json({ success: true, results })
+  } catch (error) {
+    return NextResponse.json({ error: String(error) }, { status: 500 })
+  }
+}
+
 export async function PATCH(request: Request) {
   try {
     const { secret, collection, id, locale, data } = await request.json()
