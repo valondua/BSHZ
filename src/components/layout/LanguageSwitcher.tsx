@@ -9,7 +9,7 @@ export function LanguageSwitcher() {
   const router = useRouter()
 
   const switchLocale = (newLocale: string) => {
-    router.replace(pathname, { locale: newLocale })
+    router.replace(pathname as any, { locale: newLocale })
   }
 
   const locales = ['sq', 'de', 'fr', 'it', 'en'] as const
