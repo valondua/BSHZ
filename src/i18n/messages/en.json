@@ -45,7 +45,8 @@
     "events_empty": "Activities will be added soon.",
     "about_section_title": "About the Albanian Community",
     "about_section_text": "The Albanian Community in Switzerland is the leading organisation representing the interests of the Albanian community in Switzerland. We work for integration, culture and the preservation of national identity.",
-    "about_section_cta": "Learn more"
+    "about_section_cta": "Learn more",
+    "followers": "followers"
   },
   "activities": {
     "title": "Activities",
@@ -230,6 +231,25 @@
     "of": "of"
   },
   "footer": {
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "org_name": "Albanian Community in Switzerland"
+  },
+  "metadata": {
+    "site_title": "BSHZ - Albanian Community in Switzerland",
+    "site_description": "Official website of the Albanian Community in Switzerland",
+    "activities_title": "Activities - BSHZ",
+    "news_title": "News - BSHZ",
+    "feuilleton_title": "Feuilleton - BSHZ",
+    "albforum_title": "ALBFORUM Newspaper - BSHZ",
+    "about_title": "About us - BSHZ",
+    "contact_title": "Contact - BSHZ",
+    "register_title": "Registration - BSHZ",
+    "newsletter_title": "Newsletter - BSHZ",
+    "insurance_title": "Collective Insurance - BSHZ",
+    "statuti_title": "Statutes - BSHZ",
+    "culture_title": "Cultural Centres - BSHZ",
+    "albanians_title": "Albanians in Switzerland - BSHZ"
   }
 }

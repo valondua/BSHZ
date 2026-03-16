@@ -45,7 +45,8 @@
     "events_empty": "Aktivitetet do te shtohen se shpejti.",
     "about_section_title": "Rreth Bashkesise Shqiptare",
     "about_section_text": "Bashkesia Shqiptare ne Zvicer eshte organizata kryesore qe perfaqeson interesat e komunitetit shqiptar ne Zvicer. Ne punojme per integrimin, kulturen dhe ruajtjen e identitetit kombetar.",
-    "about_section_cta": "Lexo me shume"
+    "about_section_cta": "Lexo me shume",
+    "followers": "ndjekës"
   },
   "activities": {
     "title": "Aktivitete",
@@ -230,6 +231,25 @@
     "of": "nga"
   },
   "footer": {
-    "rights": "Te gjitha te drejtat e rezervuara."
+    "rights": "Te gjitha te drejtat e rezervuara.",
+    "navigation": "Navigimi",
+    "services": "Sherbime",
+    "org_name": "Bashkesia Shqiptare ne Zvicer"
+  },
+  "metadata": {
+    "site_title": "BSHZ - Bashkesia Shqiptare ne Zvicer",
+    "site_description": "Faqja zyrtare e Bashkesise Shqiptare ne Zvicer",
+    "activities_title": "Aktivitete - BSHZ",
+    "news_title": "Lajme - BSHZ",
+    "feuilleton_title": "Fejton - BSHZ",
+    "albforum_title": "Gazeta ALBFORUM - BSHZ",
+    "about_title": "Rreth nesh - BSHZ",
+    "contact_title": "Kontakt - BSHZ",
+    "register_title": "Regjistrimi - BSHZ",
+    "newsletter_title": "Newsletter - BSHZ",
+    "insurance_title": "Sigurimi Kolektiv - BSHZ",
+    "statuti_title": "Statuti - BSHZ",
+    "culture_title": "Qendrat Kulturore - BSHZ",
+    "albanians_title": "Shqiptaret ne Zvicer - BSHZ"
   }
 }

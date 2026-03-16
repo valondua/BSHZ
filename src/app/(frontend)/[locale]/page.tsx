@@ -48,7 +48,7 @@ function HeroSection({ t }: { t: (key: string) => string }) {
                 </svg>
                 <div className="min-w-0">
                   <div className="text-sm font-bold text-gray-900 truncate">BSHZ</div>
-                  <div className="text-xs text-gray-500">35,011 followers</div>
+                  <div className="text-xs text-gray-500">35,011 {t('followers')}</div>
                 </div>
                 <svg className="w-4 h-4 text-gray-400 shrink-0 ml-auto group-hover:text-[#1877F2] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

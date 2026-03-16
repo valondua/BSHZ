@@ -3,6 +3,12 @@ import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'metadata' })
+  return { title: t('albanians_title') }
+}
+
 export default async function ShqiptaretNeZvicerPage({
   params,
 }: {

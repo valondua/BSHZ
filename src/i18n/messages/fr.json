@@ -45,7 +45,8 @@
     "events_empty": "Les activites seront ajoutees prochainement.",
     "about_section_title": "A propos de la Communaute albanaise",
     "about_section_text": "La Communaute albanaise en Suisse est la principale organisation representant les interets de la communaute albanaise en Suisse. Nous oeuvrons pour l'integration, la culture et la preservation de l'identite nationale.",
-    "about_section_cta": "En savoir plus"
+    "about_section_cta": "En savoir plus",
+    "followers": "abonnés"
   },
   "activities": {
     "title": "Activites",
@@ -230,6 +231,25 @@
     "of": "sur"
   },
   "footer": {
-    "rights": "Tous droits reserves."
+    "rights": "Tous droits reserves.",
+    "navigation": "Navigation",
+    "services": "Services",
+    "org_name": "Communaute albanaise en Suisse"
+  },
+  "metadata": {
+    "site_title": "BSHZ - Communaute albanaise en Suisse",
+    "site_description": "Site officiel de la Communaute albanaise en Suisse",
+    "activities_title": "Activites - BSHZ",
+    "news_title": "Actualites - BSHZ",
+    "feuilleton_title": "Feuilleton - BSHZ",
+    "albforum_title": "Journal ALBFORUM - BSHZ",
+    "about_title": "A propos - BSHZ",
+    "contact_title": "Contact - BSHZ",
+    "register_title": "Inscription - BSHZ",
+    "newsletter_title": "Newsletter - BSHZ",
+    "insurance_title": "Assurance collective - BSHZ",
+    "statuti_title": "Statuts - BSHZ",
+    "culture_title": "Centres culturels - BSHZ",
+    "albanians_title": "Les Albanais en Suisse - BSHZ"
   }
 }

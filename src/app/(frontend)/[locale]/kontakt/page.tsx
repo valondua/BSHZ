@@ -1,5 +1,11 @@
 import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'metadata' })
+  return { title: t('contact_title') }
+}
 import { ContactForm } from '@/components/forms/ContactForm'
 
 export default async function ContactPage({

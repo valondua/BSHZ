@@ -45,7 +45,8 @@
     "events_empty": "Aktivitäten werden in Kürze hinzugefügt.",
     "about_section_title": "Über die Albanische Gemeinschaft",
     "about_section_text": "Die Albanische Gemeinschaft in der Schweiz ist die führende Organisation, die die Interessen der albanischen Gemeinschaft in der Schweiz vertritt.",
-    "about_section_cta": "Mehr erfahren"
+    "about_section_cta": "Mehr erfahren",
+    "followers": "Follower"
   },
   "activities": {
     "title": "Aktivitäten",
@@ -230,6 +231,25 @@
     "of": "von"
   },
   "footer": {
-    "rights": "Alle Rechte vorbehalten."
+    "rights": "Alle Rechte vorbehalten.",
+    "navigation": "Navigation",
+    "services": "Dienstleistungen",
+    "org_name": "Albanische Gemeinschaft in der Schweiz"
+  },
+  "metadata": {
+    "site_title": "BSHZ - Albanische Gemeinschaft in der Schweiz",
+    "site_description": "Offizielle Seite der Albanischen Gemeinschaft in der Schweiz",
+    "activities_title": "Aktivitäten - BSHZ",
+    "news_title": "Nachrichten - BSHZ",
+    "feuilleton_title": "Feuilleton - BSHZ",
+    "albforum_title": "Zeitung ALBFORUM - BSHZ",
+    "about_title": "Über uns - BSHZ",
+    "contact_title": "Kontakt - BSHZ",
+    "register_title": "Registrierung - BSHZ",
+    "newsletter_title": "Newsletter - BSHZ",
+    "insurance_title": "Kollektivversicherung - BSHZ",
+    "statuti_title": "Statuten - BSHZ",
+    "culture_title": "Kulturzentren - BSHZ",
+    "albanians_title": "Albaner in der Schweiz - BSHZ"
   }
 }

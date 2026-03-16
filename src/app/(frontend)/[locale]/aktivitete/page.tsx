@@ -4,6 +4,12 @@ import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
 import { getMediaUrl } from '@/utilities/getMediaUrl'
 
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'metadata' })
+  return { title: t('activities_title') }
+}
+
 export default async function ActivitiesPage({
   params,
   searchParams,

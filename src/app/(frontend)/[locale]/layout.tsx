@@ -1,12 +1,16 @@
 import { NextIntlClientProvider, useMessages } from 'next-intl'
-import { getMessages } from 'next-intl/server'
+import { getMessages, getTranslations } from 'next-intl/server'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import '@/app/globals.css'
 
-export const metadata = {
-  title: 'BSHZ - Bashkësia Shqiptare në Zvicër',
-  description: 'Faqja zyrtare e Bashkësisë Shqiptare në Zvicër',
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'metadata' })
+  return {
+    title: t('site_title'),
+    description: t('site_description'),
+  }
 }
 
 export default async function LocaleLayout({

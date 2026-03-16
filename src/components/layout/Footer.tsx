@@ -1,10 +1,9 @@
 import { Link } from '@/i18n/navigation'
-import { useTranslations, useLocale } from 'next-intl'
+import { useTranslations } from 'next-intl'
 
 export function Footer() {
   const t = useTranslations('footer')
   const tNav = useTranslations('nav')
-  const locale = useLocale()
   const year = new Date().getFullYear()
 
   return (
@@ -27,14 +26,14 @@ export function Footer() {
                 </div>
               </div>
               <p className="text-sm text-white/60 leading-relaxed">
-                Bashkësia Shqiptare në Zvicër
+                {t('org_name')}
               </p>
             </div>
 
             {/* Navigation */}
             <div>
               <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
-                {{ sq: 'Navigimi', de: 'Navigation', fr: 'Navigation', it: 'Navigazione', en: 'Navigation' }[locale] || 'Navigation'}
+                {t('navigation')}
               </h4>
               <ul className="space-y-2.5 text-sm">
                 <li><Link href="/aktivitete" className="text-white/60 hover:text-white transition-colors">{tNav('activities')}</Link></li>
@@ -47,7 +46,7 @@ export function Footer() {
             {/* Links */}
             <div>
               <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
-                {{ sq: 'Shërbime', de: 'Dienstleistungen', fr: 'Services', it: 'Servizi', en: 'Services' }[locale] || 'Services'}
+                {t('services')}
               </h4>
               <ul className="space-y-2.5 text-sm">
                 <li><Link href="/newsletter" className="text-white/60 hover:text-white transition-colors">{tNav('newsletter')}</Link></li>
@@ -81,7 +80,7 @@ export function Footer() {
       <div className="bg-primary-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-xs text-white/40">
-            &copy; {year} Bashkësia Shqiptare në Zvicër. {t('rights')}
+            &copy; {year} {t('org_name')}. {t('rights')}
           </p>
           <div className="flex items-center gap-4">
             <a href="https://www.facebook.com/bshz.ch" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-white transition-colors">
