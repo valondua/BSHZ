@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
-const navLinks = [
+const navLinks: { key: string; href: string; external?: boolean }[] = [
   { key: 'activities', href: '/aktivitete' },
   { key: 'news', href: '/lajme' },
   { key: 'feuilleton', href: '/fejton' },
