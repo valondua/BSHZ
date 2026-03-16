@@ -191,8 +191,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="md:col-span-2 relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80">
-            <img src="/images/shqiptaret-ne-zvicer-bg.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            <img src="/images/topic-shqiptaret.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
               <h3 className="text-white text-xl md:text-2xl font-bold leading-snug">
                 {locale === 'sq' ? 'Shqiptaret në Zvicër' : 'Albaner in der Schweiz'}
@@ -201,8 +201,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent to-accent-dark" />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            <img src="/images/topic-integracioni.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <h3 className="text-white text-xl font-bold leading-snug">
                 {locale === 'sq' ? 'Integracioni dhe Arsimi' : 'Integration und Bildung'}
@@ -216,8 +216,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1B1464] to-[#2D2387]" />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            <img src="/images/topic-kultura.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <h3 className="text-white text-xl font-bold leading-snug">
                 {locale === 'sq' ? 'Kultura dhe Tradita' : 'Kultur und Tradition'}
@@ -231,8 +231,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold to-[#D4A843]" />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            <img src="/images/topic-rinia.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <h3 className="text-white text-xl font-bold leading-snug">
                 {locale === 'sq' ? 'Rinia dhe Sporti' : 'Jugend und Sport'}
@@ -246,8 +246,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           </div>
 
           <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E41E20] to-[#C41820]" />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            <img src="/images/topic-tedrejtat.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
               <h3 className="text-white text-xl font-bold leading-snug">
                 {locale === 'sq' ? 'Të drejtat dhe Përfaqësimi' : 'Rechte und Vertretung'}
