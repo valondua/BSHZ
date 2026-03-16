@@ -321,6 +321,27 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
+      {/* Facebook Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="mb-8">
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-2">
+            {locale === 'sq' ? 'Rrjetet sociale' : 'Soziale Medien'}
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-text">
+            {locale === 'sq' ? 'Lidhuni me Facebookun e Bashkësisë' : 'Verbinden Sie sich mit unserer Facebook-Seite'}
+          </h2>
+        </div>
+        <div className="bg-white rounded-2xl border border-border p-6 md:p-8 max-w-lg">
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbshz.ch&tabs&width=500&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+            width="500"
+            height="130"
+            className="w-full border-none overflow-hidden"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          />
+        </div>
+      </section>
+
       {/* About teaser */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-8 md:p-12 lg:p-16 text-white relative overflow-hidden">
