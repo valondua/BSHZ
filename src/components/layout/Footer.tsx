@@ -1,11 +1,10 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { useTranslations, useLocale } from 'next-intl'
 
 export function Footer() {
   const t = useTranslations('footer')
   const tNav = useTranslations('nav')
   const locale = useLocale()
-  const prefix = `/${locale}`
   const year = new Date().getFullYear()
 
   return (
@@ -38,10 +37,10 @@ export function Footer() {
                 {{ sq: 'Navigimi', de: 'Navigation', fr: 'Navigation', it: 'Navigazione', en: 'Navigation' }[locale] || 'Navigation'}
               </h4>
               <ul className="space-y-2.5 text-sm">
-                <li><Link href={`${prefix}/aktivitete`} className="text-white/60 hover:text-white transition-colors">{tNav('activities')}</Link></li>
-                <li><Link href={`${prefix}/lajme`} className="text-white/60 hover:text-white transition-colors">{tNav('news')}</Link></li>
-                <li><Link href={`${prefix}/fejton`} className="text-white/60 hover:text-white transition-colors">{tNav('feuilleton')}</Link></li>
-                <li><Link href={`${prefix}/albforum`} className="text-white/60 hover:text-white transition-colors">{tNav('albforum')}</Link></li>
+                <li><Link href="/aktivitete" className="text-white/60 hover:text-white transition-colors">{tNav('activities')}</Link></li>
+                <li><Link href="/lajme" className="text-white/60 hover:text-white transition-colors">{tNav('news')}</Link></li>
+                <li><Link href="/fejton" className="text-white/60 hover:text-white transition-colors">{tNav('feuilleton')}</Link></li>
+                <li><Link href="/albforum" className="text-white/60 hover:text-white transition-colors">{tNav('albforum')}</Link></li>
               </ul>
             </div>
 
@@ -51,10 +50,10 @@ export function Footer() {
                 {{ sq: 'Shërbime', de: 'Dienstleistungen', fr: 'Services', it: 'Servizi', en: 'Services' }[locale] || 'Services'}
               </h4>
               <ul className="space-y-2.5 text-sm">
-                <li><Link href={`${prefix}/newsletter`} className="text-white/60 hover:text-white transition-colors">{tNav('newsletter')}</Link></li>
-                <li><Link href={`${prefix}/regjistrimi`} className="text-white/60 hover:text-white transition-colors">{tNav('register')}</Link></li>
-                <li><Link href={`${prefix}/rreth-nesh`} className="text-white/60 hover:text-white transition-colors">{tNav('about')}</Link></li>
-                <li><Link href={`${prefix}/kontakt`} className="text-white/60 hover:text-white transition-colors">{tNav('contact')}</Link></li>
+                <li><Link href="/newsletter" className="text-white/60 hover:text-white transition-colors">{tNav('newsletter')}</Link></li>
+                <li><Link href="/regjistrimi" className="text-white/60 hover:text-white transition-colors">{tNav('register')}</Link></li>
+                <li><Link href="/rreth-nesh" className="text-white/60 hover:text-white transition-colors">{tNav('about')}</Link></li>
+                <li><Link href="/kontakt" className="text-white/60 hover:text-white transition-colors">{tNav('contact')}</Link></li>
               </ul>
             </div>
 

@@ -1,8 +1,7 @@
 'use client'
 
-import Link from 'next/link'
+import { Link, usePathname } from '@/i18n/navigation'
 import { useTranslations, useLocale } from 'next-intl'
-import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
@@ -22,12 +21,10 @@ export function Header() {
   const locale = useLocale()
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
-  const prefix = `/${locale}`
 
   const isActive = (href: string) => {
-    const full = `${prefix}${href}`
-    if (href === '/') return pathname === prefix || pathname === `${prefix}/`
-    return pathname.startsWith(full)
+    if (href === '/') return pathname === '/'
+    return pathname.startsWith(href)
   }
 
   return (
@@ -57,7 +54,7 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-[72px]">
             {/* Logo */}
-            <Link href={`${prefix}/`} className="flex items-center gap-3 group shrink-0">
+            <Link href="/" className="flex items-center gap-3 group shrink-0">
               <img
                 src="/logo-crest.jpg"
                 alt="BSHZ"
@@ -85,7 +82,7 @@ export function Header() {
                 ) : (
                   <Link
                     key={link.key}
-                    href={`${prefix}${link.href}`}
+                    href={link.href as any}
                     className={`relative px-3 xl:px-3.5 py-2 text-[13px] font-medium transition-colors ${
                       isActive(link.href)
                         ? 'text-accent'
@@ -137,7 +134,7 @@ export function Header() {
                 ) : (
                   <Link
                     key={link.key}
-                    href={`${prefix}${link.href}`}
+                    href={link.href as any}
                     onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
                       isActive(link.href)

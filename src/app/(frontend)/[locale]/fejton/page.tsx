@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
@@ -16,7 +16,7 @@ export default async function FeuilletonPage({
   const currentPage = Number(pageParam) || 1
   const t = await getTranslations({ locale, namespace: 'feuilleton' })
   const payload = await getPayload()
-  const prefix = `/${locale}`
+
 
   const result = await payload.find({
     collection: 'feuilleton',
@@ -37,7 +37,7 @@ export default async function FeuilletonPage({
             {result.docs.map((article: any) => (
               <Link
                 key={article.id}
-                href={`${prefix}/fejton/${article.slug}`}
+                href={{ pathname: '/fejton/[slug]', params: { slug: article.slug } }}
                 className="group block bg-white rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow"
               >
                 {article.featuredImage && typeof article.featuredImage === 'object' && (
@@ -69,7 +69,7 @@ export default async function FeuilletonPage({
               {Array.from({ length: result.totalPages }, (_, i) => i + 1).map((page) => (
                 <Link
                   key={page}
-                  href={`${prefix}/fejton?page=${page}`}
+                  href={`/fejton?page=${page}` as any}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     page === currentPage
                       ? 'bg-primary text-white'

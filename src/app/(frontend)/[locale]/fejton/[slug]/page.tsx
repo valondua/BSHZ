@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
@@ -15,7 +15,7 @@ export default async function FeuilletonArticlePage({
   const t = await getTranslations({ locale, namespace: 'feuilleton' })
   const tCommon = await getTranslations({ locale, namespace: 'common' })
   const payload = await getPayload()
-  const prefix = `/${locale}`
+
 
   const result = await payload.find({
     collection: 'feuilleton',
@@ -29,7 +29,7 @@ export default async function FeuilletonArticlePage({
 
   return (
     <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <Link href={`${prefix}/fejton`} className="text-primary hover:underline text-sm mb-6 inline-block">
+      <Link href="/fejton" className="text-primary hover:underline text-sm mb-6 inline-block">
         &larr; {tCommon('back')}
       </Link>
 

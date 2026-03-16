@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
 
@@ -12,8 +12,6 @@ export default async function ShqiptaretNeZvicerPage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const prefix = `/${locale}`
-
   // Fetch related news
   const payload = await getPayload()
   const newsResult = await payload.find({
@@ -31,12 +29,12 @@ export default async function ShqiptaretNeZvicerPage({
         {/* Albanian & Swiss flags side by side */}
         <div className="absolute inset-0 flex">
           {/* Albanian flag - left half */}
-          <div className="w-1/2 h-full bg-[#e41e20] flex items-center justify-center">
+          <div className="w-1/2 h-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/flag-albania.png"
               alt="Albanian flag"
-              className="h-3/4 w-auto object-contain"
+              className="h-full w-full object-cover object-center"
             />
           </div>
           {/* Swiss flag - right half */}
@@ -51,7 +49,7 @@ export default async function ShqiptaretNeZvicerPage({
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-10">
           <div>
             <Link
-              href={prefix}
+              href="/"
               className="text-white/70 hover:text-white text-sm mb-3 inline-flex items-center gap-1 transition-colors"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -191,7 +189,7 @@ export default async function ShqiptaretNeZvicerPage({
               <ul className="space-y-3">
                 <li>
                   <Link
-                    href={`${prefix}/rreth-nesh`}
+                    href="/rreth-nesh"
                     className="text-primary hover:text-primary-light text-sm font-medium transition-colors flex items-center gap-2"
                   >
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -202,7 +200,7 @@ export default async function ShqiptaretNeZvicerPage({
                 </li>
                 <li>
                   <Link
-                    href={`${prefix}/aktivitete`}
+                    href="/aktivitete"
                     className="text-primary hover:text-primary-light text-sm font-medium transition-colors flex items-center gap-2"
                   >
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -213,7 +211,7 @@ export default async function ShqiptaretNeZvicerPage({
                 </li>
                 <li>
                   <Link
-                    href={`${prefix}/kontakt`}
+                    href="/kontakt"
                     className="text-primary hover:text-primary-light text-sm font-medium transition-colors flex items-center gap-2"
                   >
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -224,7 +222,7 @@ export default async function ShqiptaretNeZvicerPage({
                 </li>
                 <li>
                   <Link
-                    href={`${prefix}/regjistrimi`}
+                    href="/regjistrimi"
                     className="text-primary hover:text-primary-light text-sm font-medium transition-colors flex items-center gap-2"
                   >
                     <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -246,7 +244,7 @@ export default async function ShqiptaretNeZvicerPage({
                   {newsResult.docs.map((article: any) => (
                     <li key={article.id}>
                       <Link
-                        href={`${prefix}/lajme/${article.slug}`}
+                        href={`/lajme/${article.slug}` as any}
                         className="group block"
                       >
                         <h4 className="text-sm font-semibold text-text group-hover:text-primary transition-colors leading-snug">
@@ -262,7 +260,7 @@ export default async function ShqiptaretNeZvicerPage({
                   ))}
                 </ul>
                 <Link
-                  href={`${prefix}/lajme`}
+                  href="/lajme"
                   className="text-primary hover:text-primary-light text-sm font-semibold mt-4 inline-block transition-colors"
                 >
                   {tx(locale, { sq: 'Te gjitha lajmet', de: 'Alle Nachrichten', fr: 'Toutes les actualites', it: 'Tutte le notizie', en: 'All news' })} &rarr;

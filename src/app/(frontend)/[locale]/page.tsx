@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
@@ -12,8 +12,6 @@ function tx(locale: string, texts: Texts): string {
 }
 
 function HeroSection({ t, locale }: { t: (key: string) => string; locale: string }) {
-  const prefix = `/${locale}`
-
   return (
     <section className="relative bg-primary-dark text-white overflow-hidden">
       {/* Background pattern */}
@@ -40,14 +38,14 @@ function HeroSection({ t, locale }: { t: (key: string) => string; locale: string
 
             <div className="flex flex-wrap gap-3">
               <Link
-                href={`${prefix}/aktivitete`}
+                href="/aktivitete"
                 className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-3 rounded-lg text-sm hover:bg-white/90 transition-all hover:shadow-lg"
               >
                 {t('cta_activities')}
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </Link>
               <Link
-                href={`${prefix}/albforum`}
+                href="/albforum"
                 className="inline-flex items-center gap-2 bg-accent text-white font-semibold px-6 py-3 rounded-lg text-sm hover:bg-accent-light transition-all hover:shadow-lg"
               >
                 {t('cta_albforum')}
@@ -103,7 +101,7 @@ function HeroSection({ t, locale }: { t: (key: string) => string; locale: string
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <Link
-            href={`${prefix}/regjistrimi`}
+            href="/regjistrimi"
             className="group flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/15 transition-all"
           >
             <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center shrink-0">
@@ -115,7 +113,7 @@ function HeroSection({ t, locale }: { t: (key: string) => string; locale: string
             </div>
           </Link>
           <Link
-            href={`${prefix}/newsletter`}
+            href="/newsletter"
             className="group flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/15 transition-all"
           >
             <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center shrink-0">
@@ -157,8 +155,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     }),
   ])
 
-  const prefix = `/${locale}`
-
   return (
     <>
       <HeroSection t={(key: string) => t(key)} locale={locale} />
@@ -174,7 +170,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               {tx(locale, { sq: 'Lajmet e fundit', de: 'Neueste Nachrichten', fr: 'Dernieres actualites', it: 'Ultime notizie', en: 'Latest news' })}
             </h2>
           </div>
-          <Link href={`${prefix}/lajme`} className="text-primary hover:text-primary-light text-sm font-semibold transition-colors hidden sm:block">
+          <Link href="/lajme" className="text-primary hover:text-primary-light text-sm font-semibold transition-colors hidden sm:block">
             {tx(locale, { sq: 'Shiko te gjitha', de: 'Alle anzeigen', fr: 'Voir tout', it: 'Vedi tutto', en: 'View all' })} &rarr;
           </Link>
         </div>
@@ -184,7 +180,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             {newsResult.docs.map((article: any) => (
               <Link
                 key={article.id}
-                href={`${prefix}/lajme/${article.slug}`}
+                href={{ pathname: '/lajme/[slug]', params: { slug: article.slug } }}
                 className="group block bg-white rounded-2xl border border-border overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
                 {article.featuredImage && typeof article.featuredImage === 'object' && (
@@ -217,7 +213,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         )}
 
         <div className="sm:hidden mt-6 text-center">
-          <Link href={`${prefix}/lajme`} className="text-primary text-sm font-semibold">
+          <Link href="/lajme" className="text-primary text-sm font-semibold">
             {tx(locale, { sq: 'Shiko te gjitha', de: 'Alle anzeigen', fr: 'Voir tout', it: 'Vedi tutto', en: 'View all' })} &rarr;
           </Link>
         </div>
@@ -235,15 +231,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Link href={`${prefix}/temat/shqiptaret-ne-zvicer`} className="md:col-span-2 relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80 block">
+          <Link href="/temat/shqiptaret-ne-zvicer" className="md:col-span-2 relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80 block">
             <div className="absolute inset-0 flex">
               {/* Albanian flag - left half */}
-              <div className="w-1/2 h-full bg-[#e41e20] flex items-center justify-center">
+              <div className="w-1/2 h-full">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/flag-albania.png"
                   alt="Albanian flag"
-                  className="h-3/5 w-auto object-contain"
+                  className="h-full w-full object-cover"
                 />
               </div>
               {/* Swiss flag - right half */}
@@ -275,7 +271,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </div>
 
-          <Link href={`${prefix}/temat/qendrat-kulturore`} className="relative rounded-2xl overflow-hidden group cursor-pointer h-56 block">
+          <Link href="/temat/qendrat-kulturore" className="relative rounded-2xl overflow-hidden group cursor-pointer h-56 block">
             <img src="/images/topic-kultura.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -328,7 +324,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
                 {tx(locale, { sq: 'Aktivitetet e ardhshme', de: 'Kommende Aktivitäten', fr: 'Prochaines activites', it: 'Prossime attivita', en: 'Upcoming activities' })}
               </h2>
             </div>
-            <Link href={`${prefix}/aktivitete`} className="text-primary hover:text-primary-light text-sm font-semibold transition-colors hidden sm:block">
+            <Link href="/aktivitete" className="text-primary hover:text-primary-light text-sm font-semibold transition-colors hidden sm:block">
               {tx(locale, { sq: 'Shiko te gjitha', de: 'Alle anzeigen', fr: 'Voir tout', it: 'Vedi tutto', en: 'View all' })} &rarr;
             </Link>
           </div>
@@ -338,7 +334,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               {eventsResult.docs.map((event: any) => (
                 <Link
                   key={event.id}
-                  href={`${prefix}/aktivitete/${event.slug}`}
+                  href={{ pathname: '/aktivitete/[slug]', params: { slug: event.slug } }}
                   className="group block bg-white rounded-2xl border border-border p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
@@ -388,7 +384,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               {tx(locale, { sq: 'Bashkësia Shqiptare në Zvicër është organizata kryesore që përfaqëson interesat e komunitetit shqiptar në Zvicër. Ne punojmë për integrimin, kulturën dhe ruajtjen e identitetit kombëtar.', de: 'Die Albanische Gemeinschaft in der Schweiz ist die führende Organisation, die die Interessen der albanischen Gemeinschaft in der Schweiz vertritt.', fr: "La Communaute albanaise en Suisse est la principale organisation representant les interets de la communaute albanaise en Suisse. Nous oeuvrons pour l'integration, la culture et la preservation de l'identite nationale.", it: "La Comunita albanese in Svizzera e l'organizzazione principale che rappresenta gli interessi della comunita albanese in Svizzera. Lavoriamo per l'integrazione, la cultura e la preservazione dell'identita nazionale.", en: 'The Albanian Community in Switzerland is the leading organisation representing the interests of the Albanian community in Switzerland. We work for integration, culture and the preservation of national identity.' })}
             </p>
             <Link
-              href={`${prefix}/rreth-nesh`}
+              href="/rreth-nesh"
               className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-6 py-3 rounded-lg text-sm hover:bg-white/90 transition-all"
             >
               {tx(locale, { sq: 'Lexo me shume', de: 'Mehr erfahren', fr: 'En savoir plus', it: 'Scopri di piu', en: 'Learn more' })}

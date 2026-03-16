@@ -1,21 +1,15 @@
 'use client'
 
 import { useLocale } from 'next-intl'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from '@/i18n/navigation'
 
 export function LanguageSwitcher() {
   const locale = useLocale()
   const pathname = usePathname()
+  const router = useRouter()
 
   const switchLocale = (newLocale: string) => {
-    const segments = pathname.split('/')
-    if (['sq', 'de', 'fr', 'it', 'en'].includes(segments[1])) {
-      segments[1] = newLocale
-    } else {
-      segments.splice(1, 0, newLocale)
-    }
-    // Hard navigation ensures the server layout re-renders with the correct locale messages
-    window.location.href = segments.join('/') || `/${newLocale}`
+    router.replace(pathname, { locale: newLocale })
   }
 
   const locales = ['sq', 'de', 'fr', 'it', 'en'] as const

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
@@ -16,7 +16,7 @@ export default async function NewsPage({
   const currentPage = Number(pageParam) || 1
   const t = await getTranslations({ locale, namespace: 'news' })
   const payload = await getPayload()
-  const prefix = `/${locale}`
+
 
   const result = await payload.find({
     collection: 'news',
@@ -37,7 +37,7 @@ export default async function NewsPage({
             {result.docs.map((article: any) => (
               <Link
                 key={article.id}
-                href={`${prefix}/lajme/${article.slug}`}
+                href={{ pathname: '/lajme/[slug]', params: { slug: article.slug } }}
                 className="group block bg-white rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow"
               >
                 {article.featuredImage && typeof article.featuredImage === 'object' && (
@@ -69,7 +69,7 @@ export default async function NewsPage({
               {Array.from({ length: result.totalPages }, (_, i) => i + 1).map((page) => (
                 <Link
                   key={page}
-                  href={`${prefix}/lajme?page=${page}`}
+                  href={`/lajme?page=${page}` as any}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     page === currentPage
                       ? 'bg-primary text-white'
