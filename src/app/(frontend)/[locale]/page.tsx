@@ -157,7 +157,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </Link>
           {/* Integration & Education — green */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80">
+          <Link href="/temat/integracioni-dhe-arsimi" className="relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80 block">
             <div className="absolute inset-0 bg-gradient-to-br from-[#1b4332] to-[#2d6a4f]" />
             <div className="absolute inset-0 flex items-center justify-center">
               <svg viewBox="0 0 120 120" className="w-32 h-32 text-white/15" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -169,7 +169,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <h3 className="text-white text-xl font-bold leading-snug">{t('topic_integration')}</h3>
               <p className="text-white/70 text-sm mt-2">{t('topic_integration_desc')}</p>
             </div>
-          </div>
+          </Link>
           {/* Cultural Centres — navy blue */}
           <Link href="/temat/qendrat-kulturore" className="relative rounded-2xl overflow-hidden group cursor-pointer h-56 block">
             <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a6e] to-[#2e2ea8]" />
@@ -185,7 +185,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             </div>
           </Link>
           {/* Youth & Sport — gold */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
+          <Link href="/temat/rinia-dhe-sporti" className="relative rounded-2xl overflow-hidden group cursor-pointer h-56 block">
             <div className="absolute inset-0 bg-gradient-to-br from-[#7b6b1a] to-[#b8960c]" />
             <div className="absolute inset-0 flex items-center justify-center">
               <svg viewBox="0 0 120 120" className="w-28 h-28 text-white/15" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -200,9 +200,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <h3 className="text-white text-xl font-bold leading-snug">{t('topic_youth')}</h3>
               <p className="text-white/70 text-sm mt-2">{t('topic_youth_desc')}</p>
             </div>
-          </div>
+          </Link>
           {/* Rights & Representation — deep red */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
+          <Link href="/temat/te-drejtat-dhe-perfaqesimi" className="relative rounded-2xl overflow-hidden group cursor-pointer h-56 block">
             <div className="absolute inset-0 bg-gradient-to-br from-[#7b1a1a] to-[#b82020]" />
             <div className="absolute inset-0 flex items-center justify-center">
               <svg viewBox="0 0 120 120" className="w-28 h-28 text-white/15" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -215,7 +215,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
               <h3 className="text-white text-xl font-bold leading-snug">{t('topic_rights')}</h3>
               <p className="text-white/70 text-sm mt-2">{t('topic_rights_desc')}</p>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 

@@ -99,5 +99,26 @@ export const routing = defineRouting({
       it: '/temi/albanesi-in-svizzera',
       en: '/topics/albanians-in-switzerland',
     },
+    '/temat/integracioni-dhe-arsimi': {
+      sq: '/temat/integracioni-dhe-arsimi',
+      de: '/themen/integration-und-bildung',
+      fr: '/themes/integration-et-education',
+      it: '/temi/integrazione-e-istruzione',
+      en: '/topics/integration-and-education',
+    },
+    '/temat/rinia-dhe-sporti': {
+      sq: '/temat/rinia-dhe-sporti',
+      de: '/themen/jugend-und-sport',
+      fr: '/themes/jeunesse-et-sport',
+      it: '/temi/gioventu-e-sport',
+      en: '/topics/youth-and-sport',
+    },
+    '/temat/te-drejtat-dhe-perfaqesimi': {
+      sq: '/temat/te-drejtat-dhe-perfaqesimi',
+      de: '/themen/rechte-und-vertretung',
+      fr: '/themes/droits-et-representation',
+      it: '/temi/diritti-e-rappresentanza',
+      en: '/topics/rights-and-representation',
+    },
   },
 })
