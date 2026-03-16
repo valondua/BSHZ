@@ -9,6 +9,7 @@
     "register": "Iscrizione",
     "about": "Chi siamo",
     "insurance": "Assicurazione collettiva",
+    "statuti": "Statuti",
     "contact": "Contatto"
   },
   "home": {
@@ -91,6 +92,11 @@
   },
   "about": {
     "title": "Chi siamo"
+  },
+  "statuti": {
+    "title": "Programma e Statuti",
+    "program_subtitle": "Estratti dal Programma e dagli Statuti",
+    "history_subtitle": "Storia degli Statuti"
   },
   "common": {
     "loading": "Caricamento...",

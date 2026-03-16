@@ -11,7 +11,7 @@ const navLinks = [
   { key: 'news', href: '/lajme' },
   { key: 'feuilleton', href: '/fejton' },
   { key: 'albforum', href: '/albforum' },
-  { key: 'insurance', href: 'https://bshz.ch/?page_id=36', external: true },
+  { key: 'insurance', href: '/sigurimi-kolektiv' },
   { key: 'register', href: '/regjistrimi' },
   { key: 'statuti', href: '/statuti' },
   { key: 'about', href: '/rreth-nesh' },

@@ -9,6 +9,7 @@
     "register": "Registration",
     "about": "About us",
     "insurance": "Collective Insurance",
+    "statuti": "Statutes",
     "contact": "Contact"
   },
   "home": {
@@ -91,6 +92,11 @@
   },
   "about": {
     "title": "About us"
+  },
+  "statuti": {
+    "title": "Program and Statutes",
+    "program_subtitle": "Excerpts from the Program and Statutes",
+    "history_subtitle": "History of the Statutes"
   },
   "common": {
     "loading": "Loading...",
