@@ -18,7 +18,6 @@ export const AlbforumIssues: CollectionConfig = {
       name: 'issueNumber',
       type: 'number',
       required: true,
-      unique: true,
     },
     {
       name: 'title',
