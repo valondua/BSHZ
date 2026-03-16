@@ -118,102 +118,8 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <>
       <HeroSection t={(key: string) => t(key)} locale={locale} />
 
-      {/* Topics Section - like swissjews.ch */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:pt-24">
-        <div className="mb-8">
-          <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-2">
-            {locale === 'sq' ? 'Temat kryesore' : 'Schwerpunkte'}
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-text">
-            {locale === 'sq' ? 'Fushat e angazhimit tonë' : 'Unsere Themenbereiche'}
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Large card - Albania & Switzerland */}
-          <div className="md:col-span-2 relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E41E20] via-[#1B1464] to-[#E41E20]" />
-            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-              <h3 className="text-white text-xl md:text-2xl font-bold leading-snug">
-                {locale === 'sq' ? 'Shqipëria dhe Zvicra' : 'Albanien und die Schweiz'}
-              </h3>
-              <p className="text-white/70 text-sm mt-2 max-w-md">
-                {locale === 'sq'
-                  ? 'Forcimi i marrëdhënieve ndërmjet Shqipërisë, Kosovës dhe Zvicrës'
-                  : 'Stärkung der Beziehungen zwischen Albanien, Kosovo und der Schweiz'}
-              </p>
-            </div>
-          </div>
-
-          {/* Right card - Integration */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent to-accent-dark" />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-white text-xl font-bold leading-snug">
-                {locale === 'sq' ? 'Integracioni dhe Arsimi' : 'Integration und Bildung'}
-              </h3>
-              <p className="text-white/70 text-sm mt-2">
-                {locale === 'sq'
-                  ? 'Mbështetja e integrimit dhe arsimit të komunitetit'
-                  : 'Unterstützung bei Integration und Bildung'}
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom left - Culture */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1B1464] to-[#2D2387]" />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-white text-xl font-bold leading-snug">
-                {locale === 'sq' ? 'Kultura dhe Tradita' : 'Kultur und Tradition'}
-              </h3>
-              <p className="text-white/70 text-sm mt-2">
-                {locale === 'sq'
-                  ? 'Ruajtja dhe promovimi i kulturës shqiptare'
-                  : 'Bewahrung und Förderung der albanischen Kultur'}
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom center - Youth & Sports */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
-            <div className="absolute inset-0 bg-gradient-to-br from-gold to-[#D4A843]" />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-white text-xl font-bold leading-snug">
-                {locale === 'sq' ? 'Rinia dhe Sporti' : 'Jugend und Sport'}
-              </h3>
-              <p className="text-white/70 text-sm mt-2">
-                {locale === 'sq'
-                  ? 'Aktivitete për të rinjtë e komunitetit'
-                  : 'Aktivitäten für die Jugend der Gemeinschaft'}
-              </p>
-            </div>
-          </div>
-
-          {/* Bottom right - Rights */}
-          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E41E20] to-[#C41820]" />
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <h3 className="text-white text-xl font-bold leading-snug">
-                {locale === 'sq' ? 'Të drejtat dhe Përfaqësimi' : 'Rechte und Vertretung'}
-              </h3>
-              <p className="text-white/70 text-sm mt-2">
-                {locale === 'sq'
-                  ? 'Mbrojtja e të drejtave të diasporës shqiptare'
-                  : 'Schutz der Rechte der albanischen Diaspora'}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Latest News */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:pt-24">
         <div className="flex items-end justify-between mb-8">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-2">
@@ -269,6 +175,95 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
           <Link href={`${prefix}/lajme`} className="text-primary text-sm font-semibold">
             {locale === 'sq' ? 'Shiko te gjitha' : 'Alle anzeigen'} &rarr;
           </Link>
+        </div>
+      </section>
+
+      {/* Topics Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="mb-8">
+          <p className="text-xs font-semibold uppercase tracking-widest text-accent mb-2">
+            {locale === 'sq' ? 'Temat kryesore' : 'Schwerpunkte'}
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-text">
+            {locale === 'sq' ? 'Fushat e angazhimit tonë' : 'Unsere Themenbereiche'}
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="md:col-span-2 relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#E41E20] via-[#1B1464] to-[#E41E20]" />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+              <h3 className="text-white text-xl md:text-2xl font-bold leading-snug">
+                {locale === 'sq' ? 'Shqipëria dhe Zvicra' : 'Albanien und die Schweiz'}
+              </h3>
+              <p className="text-white/70 text-sm mt-2 max-w-md">
+                {locale === 'sq'
+                  ? 'Forcimi i marrëdhënieve ndërmjet Shqipërisë, Kosovës dhe Zvicrës'
+                  : 'Stärkung der Beziehungen zwischen Albanien, Kosovo und der Schweiz'}
+              </p>
+            </div>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent to-accent-dark" />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h3 className="text-white text-xl font-bold leading-snug">
+                {locale === 'sq' ? 'Integracioni dhe Arsimi' : 'Integration und Bildung'}
+              </h3>
+              <p className="text-white/70 text-sm mt-2">
+                {locale === 'sq'
+                  ? 'Mbështetja e integrimit dhe arsimit të komunitetit'
+                  : 'Unterstützung bei Integration und Bildung'}
+              </p>
+            </div>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1B1464] to-[#2D2387]" />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h3 className="text-white text-xl font-bold leading-snug">
+                {locale === 'sq' ? 'Kultura dhe Tradita' : 'Kultur und Tradition'}
+              </h3>
+              <p className="text-white/70 text-sm mt-2">
+                {locale === 'sq'
+                  ? 'Ruajtja dhe promovimi i kulturës shqiptare'
+                  : 'Bewahrung und Förderung der albanischen Kultur'}
+              </p>
+            </div>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
+            <div className="absolute inset-0 bg-gradient-to-br from-gold to-[#D4A843]" />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h3 className="text-white text-xl font-bold leading-snug">
+                {locale === 'sq' ? 'Rinia dhe Sporti' : 'Jugend und Sport'}
+              </h3>
+              <p className="text-white/70 text-sm mt-2">
+                {locale === 'sq'
+                  ? 'Aktivitete për të rinjtë e komunitetit'
+                  : 'Aktivitäten für die Jugend der Gemeinschaft'}
+              </p>
+            </div>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden group cursor-pointer h-56">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#E41E20] to-[#C41820]" />
+            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <h3 className="text-white text-xl font-bold leading-snug">
+                {locale === 'sq' ? 'Të drejtat dhe Përfaqësimi' : 'Rechte und Vertretung'}
+              </h3>
+              <p className="text-white/70 text-sm mt-2">
+                {locale === 'sq'
+                  ? 'Mbrojtja e të drejtave të diasporës shqiptare'
+                  : 'Schutz der Rechte der albanischen Diaspora'}
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

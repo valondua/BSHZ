@@ -3,7 +3,7 @@ import type { CollectionConfig } from 'payload'
 export const Media: CollectionConfig = {
   slug: 'media',
   upload: {
-    staticDir: '../public/media',
+    staticDir: process.env.BLOB_READ_WRITE_TOKEN ? '/tmp/media' : '../public/media',
     mimeTypes: ['image/*', 'application/pdf'],
     imageSizes: [
       { name: 'thumbnail', width: 400, height: 300, position: 'centre' },
