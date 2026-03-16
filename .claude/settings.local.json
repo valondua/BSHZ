@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:bshz.ch)",
+      "WebFetch(domain:www.hostpoint.ch)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:payloadcms.com)",
+      "WebFetch(domain:support.hostpoint.ch)",
+      "Bash(npx create-payload-app@latest . --template website --db postgres)",
+      "Bash(npm install:*)",
+      "Bash(npx next:*)",
+      "Bash(brew services:*)",
+      "Bash(pg_ctl -D /opt/homebrew/var/postgresql@14 start)",
+      "Bash(pg_isready)",
+      "Bash(createdb bshz:*)",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:swissjews.ch)",
+      "Bash(TMPDIR=/private/tmp/claude-501 npx tsx src/seed.ts)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

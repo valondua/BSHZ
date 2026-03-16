@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "activities": "Aktivitäten",
+    "news": "Nachrichten",
+    "feuilleton": "Feuilleton",
+    "albforum": "Zeitung ALBFORUM",
+    "newsletter": "Newsletter",
+    "register": "Registrierung",
+    "about": "Über uns",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "hero_title": "Albanische Gemeinschaft in der Schweiz",
+    "hero_subtitle": "Willkommen auf der offiziellen Seite der Albanischen Gemeinschaft",
+    "cta_activities": "Aktivitäten ansehen",
+    "cta_news": "Nachrichten lesen",
+    "cta_albforum": "ALBFORUM herunterladen oder lesen",
+    "cta_register": "In der Gemeinschaft registrieren",
+    "cta_newsletter": "Newsletter abonnieren",
+    "latest_news": "Neueste Nachrichten",
+    "upcoming_events": "Kommende Aktivitäten",
+    "view_all": "Alle anzeigen"
+  },
+  "activities": {
+    "title": "Aktivitäten",
+    "no_events": "Derzeit keine Aktivitäten.",
+    "date": "Datum",
+    "location": "Ort",
+    "register": "Registrieren"
+  },
+  "news": {
+    "title": "Nachrichten",
+    "no_articles": "Derzeit keine Nachrichten.",
+    "read_more": "Weiterlesen"
+  },
+  "feuilleton": {
+    "title": "Feuilleton",
+    "no_articles": "Derzeit keine Artikel.",
+    "by": "Von"
+  },
+  "albforum": {
+    "title": "Zeitung ALBFORUM",
+    "description": "Laden Sie die Ausgaben der ALBFORUM Zeitung herunter oder lesen Sie sie",
+    "download": "PDF herunterladen",
+    "issue": "Ausgabe"
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "Abonnieren Sie, um die neuesten Nachrichten der Albanischen Gemeinschaft zu erhalten.",
+    "email": "E-Mail",
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "subscribe": "Abonnieren",
+    "success": "Vielen Dank! Sie haben sich erfolgreich angemeldet.",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+  },
+  "register": {
+    "title": "Registrierung in der Gemeinschaft",
+    "description": "Füllen Sie das Formular aus, um sich in der Albanischen Gemeinschaft zu registrieren.",
+    "first_name": "Vorname",
+    "last_name": "Nachname",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "street": "Strasse",
+    "city": "Stadt",
+    "canton": "Kanton",
+    "postal_code": "Postleitzahl",
+    "date_of_birth": "Geburtsdatum",
+    "nationality": "Nationalität",
+    "membership_type": "Mitgliedschaftstyp",
+    "individual": "Einzelperson",
+    "family": "Familie",
+    "message": "Nachricht (optional)",
+    "submit": "Registrieren",
+    "success": "Vielen Dank! Ihre Registrierung wurde erfolgreich gesendet.",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Kontaktieren Sie uns bei Fragen oder Anregungen.",
+    "name": "Name",
+    "email": "E-Mail",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "send": "Senden",
+    "success": "Nachricht erfolgreich gesendet!",
+    "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+    "info_title": "Kontaktinformationen"
+  },
+  "about": {
+    "title": "Über uns"
+  },
+  "common": {
+    "loading": "Wird geladen...",
+    "back": "Zurück",
+    "page": "Seite",
+    "of": "von"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten."
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Ballina",
+    "activities": "Aktivitete",
+    "news": "Lajme",
+    "feuilleton": "Fejton",
+    "albforum": "Gazeta ALBFORUM",
+    "newsletter": "Newsletter",
+    "register": "Regjistrimi në Bashkësi",
+    "about": "Rreth nesh",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "hero_title": "Bashkësia Shqiptare në Zvicër",
+    "hero_subtitle": "Mirë se vini në faqen zyrtare të Bashkësisë Shqiptare",
+    "cta_activities": "Shiko aktivitetet",
+    "cta_news": "Lexo lajmet",
+    "cta_albforum": "Shkarko ose lexo ALBFORUM",
+    "cta_register": "Regjistrohu në Bashkësi",
+    "cta_newsletter": "Abonohu në Newsletter",
+    "latest_news": "Lajmet e fundit",
+    "upcoming_events": "Aktivitetet e ardhshme",
+    "view_all": "Shiko të gjitha"
+  },
+  "activities": {
+    "title": "Aktivitete",
+    "no_events": "Nuk ka aktivitete për momentin.",
+    "date": "Data",
+    "location": "Vendndodhja",
+    "register": "Regjistrohu"
+  },
+  "news": {
+    "title": "Lajme",
+    "no_articles": "Nuk ka lajme për momentin.",
+    "read_more": "Lexo më shumë"
+  },
+  "feuilleton": {
+    "title": "Fejton",
+    "no_articles": "Nuk ka artikuj për momentin.",
+    "by": "Nga"
+  },
+  "albforum": {
+    "title": "Gazeta ALBFORUM",
+    "description": "Shkarkoni ose lexoni numrat e gazetës ALBFORUM",
+    "download": "Shkarko PDF",
+    "issue": "Numri"
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "Abonohuni për të marrë lajmet e fundit nga Bashkësia Shqiptare.",
+    "email": "Email",
+    "first_name": "Emri",
+    "last_name": "Mbiemri",
+    "subscribe": "Abonohu",
+    "success": "Faleminderit! U regjistruat me sukses.",
+    "error": "Ndodhi një gabim. Provoni përsëri."
+  },
+  "register": {
+    "title": "Regjistrimi në Bashkësi",
+    "description": "Plotësoni formularin për t'u regjistruar në Bashkësinë Shqiptare.",
+    "first_name": "Emri",
+    "last_name": "Mbiemri",
+    "email": "Email",
+    "phone": "Telefoni",
+    "street": "Rruga",
+    "city": "Qyteti",
+    "canton": "Kantoni",
+    "postal_code": "Kodi postar",
+    "date_of_birth": "Data e lindjes",
+    "nationality": "Kombësia",
+    "membership_type": "Lloji i anëtarësimit",
+    "individual": "Individual",
+    "family": "Familjar",
+    "message": "Mesazh (opsional)",
+    "submit": "Regjistrohu",
+    "success": "Faleminderit! Regjistrimi juaj u dërgua me sukses.",
+    "error": "Ndodhi një gabim. Provoni përsëri."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "description": "Na kontaktoni për çdo pyetje ose sugjerim.",
+    "name": "Emri",
+    "email": "Email",
+    "subject": "Subjekti",
+    "message": "Mesazhi",
+    "send": "Dërgo",
+    "success": "Mesazhi u dërgua me sukses!",
+    "error": "Ndodhi një gabim. Provoni përsëri.",
+    "info_title": "Informacione kontakti"
+  },
+  "about": {
+    "title": "Rreth nesh"
+  },
+  "common": {
+    "loading": "Duke u ngarkuar...",
+    "back": "Kthehu",
+    "page": "Faqja",
+    "of": "nga"
+  },
+  "footer": {
+    "rights": "Të gjitha të drejtat e rezervuara."
+  }
+}

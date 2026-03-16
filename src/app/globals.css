@@ -1,0 +1,39 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-primary: #1a2e4a;
+  --color-primary-light: #2d4a7a;
+  --color-primary-dark: #0d1b2e;
+  --color-accent: #c0392b;
+  --color-accent-light: #e74c3c;
+  --color-accent-dark: #96281b;
+  --color-gold: #d4a84b;
+  --color-gold-light: #f0d590;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f7f8fa;
+  --color-bg-dark: #f0f2f5;
+  --color-text: #1a1a2e;
+  --color-text-light: #5a6275;
+  --color-text-muted: #8b92a5;
+  --color-border: #e2e5ea;
+  --color-border-light: #f0f1f3;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom focus styles */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+/* Better link transitions */
+a {
+  transition: color 0.2s ease;
+}
