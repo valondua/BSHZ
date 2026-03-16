@@ -35,7 +35,7 @@ export function Footer() {
             {/* Navigation */}
             <div>
               <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
-                {locale === 'sq' ? 'Navigimi' : 'Navigation'}
+                {{ sq: 'Navigimi', de: 'Navigation', fr: 'Navigation' }[locale] || 'Navigation'}
               </h4>
               <ul className="space-y-2.5 text-sm">
                 <li><Link href={`${prefix}/aktivitete`} className="text-white/60 hover:text-white transition-colors">{tNav('activities')}</Link></li>
@@ -48,7 +48,7 @@ export function Footer() {
             {/* Links */}
             <div>
               <h4 className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">
-                {locale === 'sq' ? 'Shërbime' : 'Services'}
+                {{ sq: 'Shërbime', de: 'Dienstleistungen', fr: 'Services' }[locale] || 'Services'}
               </h4>
               <ul className="space-y-2.5 text-sm">
                 <li><Link href={`${prefix}/newsletter`} className="text-white/60 hover:text-white transition-colors">{tNav('newsletter')}</Link></li>

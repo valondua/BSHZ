@@ -14,7 +14,7 @@ export default async function AboutPage({
   const result = await payload.find({
     collection: 'pages',
     where: { slug: { equals: 'rreth-nesh' } },
-    locale: locale as 'sq' | 'de',
+    locale: locale as 'sq' | 'de' | 'fr',
     limit: 1,
   })
 
@@ -31,9 +31,7 @@ export default async function AboutPage({
       ) : (
         <div className="text-center py-20">
           <p className="text-text-light text-lg">
-            {locale === 'sq'
-              ? 'Përmbajtja do të shtohet së shpejti.'
-              : 'Inhalt wird in Kürze hinzugefügt.'}
+            {{ sq: 'Përmbajtja do të shtohet së shpejti.', de: 'Inhalt wird in Kürze hinzugefügt.', fr: 'Le contenu sera ajoute prochainement.' }[locale]}
           </p>
         </div>
       )}

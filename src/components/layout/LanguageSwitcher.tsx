@@ -9,7 +9,7 @@ export function LanguageSwitcher() {
 
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split('/')
-    if (segments[1] === 'sq' || segments[1] === 'de') {
+    if (['sq', 'de', 'fr'].includes(segments[1])) {
       segments[1] = newLocale
     } else {
       segments.splice(1, 0, newLocale)
@@ -18,29 +18,25 @@ export function LanguageSwitcher() {
     window.location.href = segments.join('/') || `/${newLocale}`
   }
 
+  const locales = ['sq', 'de', 'fr'] as const
+
   return (
     <div className="flex items-center gap-0.5 text-xs">
-      <button
-        onClick={() => switchLocale('sq')}
-        className={`px-2.5 py-1 rounded-full transition-all ${
-          locale === 'sq'
-            ? 'bg-white text-primary-dark font-bold'
-            : 'text-white/60 hover:text-white'
-        }`}
-      >
-        SQ
-      </button>
-      <span className="text-white/30">|</span>
-      <button
-        onClick={() => switchLocale('de')}
-        className={`px-2.5 py-1 rounded-full transition-all ${
-          locale === 'de'
-            ? 'bg-white text-primary-dark font-bold'
-            : 'text-white/60 hover:text-white'
-        }`}
-      >
-        DE
-      </button>
+      {locales.map((loc, i) => (
+        <span key={loc} className="flex items-center">
+          {i > 0 && <span className="text-white/30">|</span>}
+          <button
+            onClick={() => switchLocale(loc)}
+            className={`px-2.5 py-1 rounded-full transition-all ${
+              locale === loc
+                ? 'bg-white text-primary-dark font-bold'
+                : 'text-white/60 hover:text-white'
+            }`}
+          >
+            {loc.toUpperCase()}
+          </button>
+        </span>
+      ))}
     </div>
   )
 }

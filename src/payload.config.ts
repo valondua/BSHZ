@@ -63,6 +63,7 @@ export default buildConfig({
     locales: [
       { label: 'Shqip', code: 'sq' },
       { label: 'Deutsch', code: 'de' },
+      { label: 'Français', code: 'fr' },
     ],
     defaultLocale: 'sq',
     fallback: true,

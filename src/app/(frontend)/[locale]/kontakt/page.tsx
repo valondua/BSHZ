@@ -13,7 +13,7 @@ export default async function ContactPage({
 
   const settings = await payload.findGlobal({
     slug: 'site-settings',
-    locale: locale as 'sq' | 'de',
+    locale: locale as 'sq' | 'de' | 'fr',
   })
 
   return (

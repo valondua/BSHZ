@@ -1,0 +1,103 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "activities": "Activites",
+    "news": "Actualites",
+    "feuilleton": "Feuilleton",
+    "albforum": "Journal ALBFORUM",
+    "newsletter": "Newsletter",
+    "register": "Inscription",
+    "about": "A propos",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "Communaute albanaise en Suisse",
+    "hero_subtitle": "Bienvenue sur le site officiel de la Communaute albanaise",
+    "cta_activities": "Voir les activites",
+    "cta_news": "Lire les actualites",
+    "cta_albforum": "Telecharger ou lire ALBFORUM",
+    "cta_register": "S'inscrire a la Communaute",
+    "cta_newsletter": "S'abonner a la Newsletter",
+    "latest_news": "Dernieres actualites",
+    "upcoming_events": "Prochaines activites",
+    "view_all": "Voir tout"
+  },
+  "activities": {
+    "title": "Activites",
+    "no_events": "Aucune activite pour le moment.",
+    "date": "Date",
+    "location": "Lieu",
+    "register": "S'inscrire"
+  },
+  "news": {
+    "title": "Actualites",
+    "no_articles": "Aucune actualite pour le moment.",
+    "read_more": "Lire la suite"
+  },
+  "feuilleton": {
+    "title": "Feuilleton",
+    "no_articles": "Aucun article pour le moment.",
+    "by": "Par"
+  },
+  "albforum": {
+    "title": "Journal ALBFORUM",
+    "description": "Telechargez ou lisez les numeros du journal ALBFORUM",
+    "download": "Telecharger PDF",
+    "issue": "Numero"
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "description": "Abonnez-vous pour recevoir les dernieres nouvelles de la Communaute albanaise.",
+    "email": "E-mail",
+    "first_name": "Prenom",
+    "last_name": "Nom",
+    "subscribe": "S'abonner",
+    "success": "Merci ! Vous etes inscrit avec succes.",
+    "error": "Une erreur s'est produite. Veuillez reessayer."
+  },
+  "register": {
+    "title": "Inscription a la Communaute",
+    "description": "Remplissez le formulaire pour vous inscrire a la Communaute albanaise.",
+    "first_name": "Prenom",
+    "last_name": "Nom",
+    "email": "E-mail",
+    "phone": "Telephone",
+    "street": "Rue",
+    "city": "Ville",
+    "canton": "Canton",
+    "postal_code": "Code postal",
+    "date_of_birth": "Date de naissance",
+    "nationality": "Nationalite",
+    "membership_type": "Type d'adhesion",
+    "individual": "Individuel",
+    "family": "Famille",
+    "message": "Message (facultatif)",
+    "submit": "S'inscrire",
+    "success": "Merci ! Votre inscription a ete envoyee avec succes.",
+    "error": "Une erreur s'est produite. Veuillez reessayer."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Contactez-nous pour toute question ou suggestion.",
+    "name": "Nom",
+    "email": "E-mail",
+    "subject": "Sujet",
+    "message": "Message",
+    "send": "Envoyer",
+    "success": "Message envoye avec succes !",
+    "error": "Une erreur s'est produite. Veuillez reessayer.",
+    "info_title": "Informations de contact"
+  },
+  "about": {
+    "title": "A propos de nous"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "back": "Retour",
+    "page": "Page",
+    "of": "sur"
+  },
+  "footer": {
+    "rights": "Tous droits reserves."
+  }
+}

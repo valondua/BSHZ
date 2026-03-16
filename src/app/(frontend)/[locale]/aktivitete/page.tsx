@@ -23,7 +23,7 @@ export default async function ActivitiesPage({
     limit: 12,
     page: currentPage,
     sort: '-eventDate',
-    locale: locale as 'sq' | 'de',
+    locale: locale as 'sq' | 'de' | 'fr',
     where: { _status: { equals: 'published' } },
   })
 

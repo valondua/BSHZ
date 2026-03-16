@@ -20,7 +20,7 @@ export default async function FeuilletonArticlePage({
   const result = await payload.find({
     collection: 'feuilleton',
     where: { slug: { equals: slug } },
-    locale: locale as 'sq' | 'de',
+    locale: locale as 'sq' | 'de' | 'fr',
     limit: 1,
   })
 
