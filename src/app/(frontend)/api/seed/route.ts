@@ -2,6 +2,43 @@ import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
+export async function PUT(request: Request) {
+  try {
+    const { secret, email, password } = await request.json()
+    if (secret !== process.env.PAYLOAD_SECRET) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+
+    const payload = await getPayload({ config })
+
+    // Check if user exists
+    const existing = await payload.find({
+      collection: 'users',
+      where: { email: { equals: email } },
+      limit: 1,
+    })
+
+    if (existing.docs.length > 0) {
+      // Update password
+      await payload.update({
+        collection: 'users',
+        id: existing.docs[0].id,
+        data: { password, role: 'admin' },
+      })
+      return NextResponse.json({ success: true, action: 'updated', email })
+    } else {
+      // Create new admin
+      await payload.create({
+        collection: 'users',
+        data: { email, password, role: 'admin' },
+      })
+      return NextResponse.json({ success: true, action: 'created', email })
+    }
+  } catch (error) {
+    return NextResponse.json({ error: String(error) }, { status: 500 })
+  }
+}
+
 export async function PATCH(request: Request) {
   try {
     const { secret, collection, id, locale, data } = await request.json()
