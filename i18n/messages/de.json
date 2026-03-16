@@ -8,6 +8,8 @@
     "newsletter": "Newsletter",
     "register": "Registrierung",
     "about": "Über uns",
+    "insurance": "Kollektivversicherung",
+    "statuti": "Statuten",
     "contact": "Kontakt"
   },
   "home": {
@@ -90,6 +92,11 @@
   },
   "about": {
     "title": "Über uns"
+  },
+  "statuti": {
+    "title": "Programm und Statuten",
+    "program_subtitle": "Auszüge aus dem Programm und den Statuten",
+    "history_subtitle": "Geschichte der Statuten"
   },
   "common": {
     "loading": "Wird geladen...",

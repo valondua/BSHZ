@@ -7,13 +7,13 @@ import { useState } from 'react'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 const navLinks = [
-  { key: 'home', href: '/' },
   { key: 'activities', href: '/aktivitete' },
   { key: 'news', href: '/lajme' },
   { key: 'feuilleton', href: '/fejton' },
   { key: 'albforum', href: '/albforum' },
-  { key: 'newsletter', href: '/newsletter' },
+  { key: 'insurance', href: 'https://bshz.ch/?page_id=36', external: true },
   { key: 'register', href: '/regjistrimi' },
+  { key: 'statuti', href: '/statuti' },
   { key: 'about', href: '/rreth-nesh' },
   { key: 'contact', href: '/kontakt' },
 ]
@@ -72,22 +72,34 @@ export function Header() {
 
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.key}
-                  href={`${prefix}${link.href}`}
-                  className={`relative px-3 xl:px-3.5 py-2 text-[13px] font-medium transition-colors ${
-                    isActive(link.href)
-                      ? 'text-accent'
-                      : 'text-text-light hover:text-primary'
-                  }`}
-                >
-                  {t(link.key)}
-                  {isActive(link.href) && (
-                    <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent rounded-full" />
-                  )}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.key}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative px-3 xl:px-3.5 py-2 text-[13px] font-medium transition-colors text-text-light hover:text-primary"
+                  >
+                    {t(link.key)}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.key}
+                    href={`${prefix}${link.href}`}
+                    className={`relative px-3 xl:px-3.5 py-2 text-[13px] font-medium transition-colors ${
+                      isActive(link.href)
+                        ? 'text-accent'
+                        : 'text-text-light hover:text-primary'
+                    }`}
+                  >
+                    {t(link.key)}
+                    {isActive(link.href) && (
+                      <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-accent rounded-full" />
+                    )}
+                  </Link>
+                ),
+              )}
             </nav>
 
             {/* Mobile burger */}
@@ -111,20 +123,33 @@ export function Header() {
         {mobileOpen && (
           <div className="lg:hidden border-t border-border bg-white shadow-lg">
             <nav className="max-w-7xl mx-auto px-4 py-3 space-y-0.5">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.key}
-                  href={`${prefix}${link.href}`}
-                  onClick={() => setMobileOpen(false)}
-                  className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-                    isActive(link.href)
-                      ? 'bg-accent/10 text-accent font-semibold'
-                      : 'text-text hover:bg-bg-alt hover:text-primary'
-                  }`}
-                >
-                  {t(link.key)}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.key}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileOpen(false)}
+                    className="block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors text-text hover:bg-bg-alt hover:text-primary"
+                  >
+                    {t(link.key)}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.key}
+                    href={`${prefix}${link.href}`}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block px-4 py-2.5 text-sm font-medium rounded-lg transition-colors ${
+                      isActive(link.href)
+                        ? 'bg-accent/10 text-accent font-semibold'
+                        : 'text-text hover:bg-bg-alt hover:text-primary'
+                    }`}
+                  >
+                    {t(link.key)}
+                  </Link>
+                ),
+              )}
             </nav>
           </div>
         )}

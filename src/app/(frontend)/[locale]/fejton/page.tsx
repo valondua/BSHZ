@@ -23,7 +23,7 @@ export default async function FeuilletonPage({
     limit: 12,
     page: currentPage,
     sort: '-publishedAt',
-    locale: locale as 'sq' | 'de' | 'fr',
+    locale: locale as 'sq' | 'de' | 'fr' | 'it' | 'en',
     where: { _status: { equals: 'published' } },
   })
 

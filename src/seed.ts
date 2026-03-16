@@ -203,6 +203,162 @@ async function seed() {
     locale: 'de',
   })
 
+  // p=198 - Informatë për këshillëtarët e sigurimeve
+  const news5 = await payload.create({
+    collection: 'news',
+    data: {
+      title: 'INFORMATË ME RËNDËSI PËR KËSHILLËTARËT E SIGURIMEVE SHËNDETËSORE NË ZVICËR!',
+      slug: 'informate-per-keshilletaret-e-sigurimeve',
+      summary: 'Helsana ofron 20% zbritje në sigurimet shtesë për anëtarët dhe simpatizantët e Bashkësisë Shqiptare në Zvicër, duke filluar nga janari 2022.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            { type: 'paragraph', children: [{ type: 'text', text: 'Të nderuar bashkatdhetarë, zonja dhe zotërinj,' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Ju njoftojmë se duke filluar nga janari 2022, Helsana u ofron të gjithë anëtarëve dhe simpatizantëve të «Bashkësisë Shqiptare në Zvicër» 20% zbritje në sigurimet shtesë (plotësuese).' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Kompanitë e sigurimeve dhe këshillëtarët që kanë klientë të cilët mbështesin organizatën mund të kenë qasje në programin online të Helsanës përmes verifikimit zyrtar nga Bashkësia Shqiptare.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Kompanitë e interesuara për të pasur qasje në këtë program sigurimesh mund të kontaktojnë në:\nEmail: info@bshz.ch\nTel: 076 388 09 57 ose 071 526 21 83' }] },
+          ],
+          direction: 'ltr',
+          format: '',
+          indent: 0,
+          version: 1,
+        },
+      },
+      publishedAt: '2022-02-20T00:00:00.000Z',
+      categories: [lajmeCategory.id],
+      _status: 'published',
+    },
+    locale: 'sq',
+  })
+
+  await payload.update({
+    collection: 'news',
+    id: news5.id,
+    data: {
+      title: 'WICHTIGE INFORMATION FÜR KRANKENVERSICHERUNGSBERATER IN DER SCHWEIZ!',
+      summary: 'Helsana bietet 20% Rabatt auf Zusatzversicherungen für Mitglieder und Sympathisanten der Albanischen Gemeinschaft in der Schweiz ab Januar 2022.',
+    },
+    locale: 'de',
+  })
+
+  // p=191 - Apel për ruajtjen e diasporës nga asimilimi
+  const news6 = await payload.create({
+    collection: 'news',
+    data: {
+      title: 'APEL DREJTUAR QEVERITARËVE NË KOSOVË, SHQIPËRI E MAQEDONINË E VERIUT, PËR RUAJTJEN E DIASPORËS SHQIPTARE NGA ASIMILIMI!',
+      slug: 'apel-per-ruajtjen-e-diaspores-nga-asimilimi',
+      summary: 'Thirrje drejtuar qeveritarëve për të mbrojtur diasporën shqiptare nga asimilimi, duke kërkuar organizim institucional për ruajtjen e gjuhës, kulturës dhe traditave kombëtare.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            { type: 'paragraph', children: [{ type: 'text', text: 'Në kohën e Rilindjes Kombëtare, pavarësisht fesë, shqiptarët ishin të bashkuar nga fryma kombëtare. Sot, edhe pse kemi qeveri dhe ministri, nuk ekziston një sistem i organizuar për ruajtjen dhe kultivimin e gjuhës, artit, kulturës dhe traditave tona kombëtare në diasporë.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Stafi i ambasadave dhe konsullatave gëzon pozita komode; klerikët fetarë marrin paga të mira dhe siguri të vendit të punës, por nuk ka mbështetje të krahasueshme institucionale për ruajtjen e trashëgimisë gjuhësore dhe kulturore mes të rinjve jashtë vendit.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Nëse vazhdojmë kështu, pas disa dekadave nipat tanë mund të identifikohen me parti politike ose fe, por me siguri nuk do të flasin shqip e as nuk do të ndihen shqiptarë.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Bëjë APEL drejtuar qeveritarëve dhe intelektualëve në Kosovë, Shqipëri dhe Maqedoninë e Veriut që të bashkojnë përpjekjet për mbrojtjen e diasporës nga erozioni kulturor.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Ahmet Asani\nKryetar i «Bashkësisë Shqiptare në Zvicër»' }] },
+          ],
+          direction: 'ltr',
+          format: '',
+          indent: 0,
+          version: 1,
+        },
+      },
+      publishedAt: '2021-12-11T00:00:00.000Z',
+      categories: [diasporaCategory.id],
+      _status: 'published',
+    },
+    locale: 'sq',
+  })
+
+  await payload.update({
+    collection: 'news',
+    id: news6.id,
+    data: {
+      title: 'APPELL AN DIE REGIERUNGEN IM KOSOVO, ALBANIEN UND NORDMAZEDONIEN ZUM SCHUTZ DER ALBANISCHEN DIASPORA VOR ASSIMILATION!',
+      summary: 'Aufruf an die Regierungen zum Schutz der albanischen Diaspora vor Assimilation, mit der Forderung nach institutioneller Organisation zur Bewahrung von Sprache, Kultur und nationalen Traditionen.',
+    },
+    locale: 'de',
+  })
+
+  // p=131 - Nga shqiptarët për shqiptarët (DUA marketplace)
+  const news7 = await payload.create({
+    collection: 'news',
+    data: {
+      title: 'NGA SHQIPTARËT PËR SHQIPTARËT!',
+      slug: 'nga-shqiptaret-per-shqiptaret',
+      summary: 'Kompania DUA AG lanson marketplace.dua.com – një platformë online ku klientët mund të zbulojnë dhe blejnë produkte nga bizneset shqiptare.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            { type: 'paragraph', children: [{ type: 'text', text: 'Me moton "nga shqiptarët për shqiptarët", kompania DUA AG, e njohur në mesin e komuniteteve shqiptare për aplikacionin dua.com, ka realizuar projektin më të ri marketplace.dua.com.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Marketplace online në marketplace.dua.com u mundëson klientëve të zbulojnë dhe blejnë artikuj nga biznese të ndryshme shqiptare me motive dalluese kulturore shqiptare.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Ju ftojmë ta shfrytëzoni këtë përvojë të re blerjeje!' }] },
+          ],
+          direction: 'ltr',
+          format: '',
+          indent: 0,
+          version: 1,
+        },
+      },
+      publishedAt: '2021-08-10T00:00:00.000Z',
+      categories: [lajmeCategory.id],
+      _status: 'published',
+    },
+    locale: 'sq',
+  })
+
+  await payload.update({
+    collection: 'news',
+    id: news7.id,
+    data: {
+      title: 'VON ALBANERN FÜR ALBANER!',
+      summary: 'DUA AG lanciert marketplace.dua.com – eine Online-Plattform, auf der Kunden Produkte von albanischen Unternehmen entdecken und kaufen können.',
+    },
+    locale: 'de',
+  })
+
+  // p=107 - Komuniteti shqiptar mbështet kandidaturën e Përparim Avdilit
+  const news8 = await payload.create({
+    collection: 'news',
+    data: {
+      title: 'KOMUNITETI SHQIPTAR NË CYRIH MBËSHTET KANDIDATURËN E PËRPARIM AVDILIT!',
+      slug: 'komuniteti-shqiptar-mbeshtetet-perparim-avdilin',
+      summary: 'Komuniteti shqiptar në Cyrih shpreh mbështetjen për kandidaturën e Përparim Avdilit për zgjedhjet e Parlamentit të Cyrihut.',
+      content: {
+        root: {
+          type: 'root',
+          children: [
+            { type: 'paragraph', children: [{ type: 'text', text: 'Komuniteti shqiptar në Cyrih ka shprehur mbështetjen e tij për kandidaturën e politikanit Përparim Avdili. Avdili, me origjinë nga Kumanova, u rizgjodh kohë më parë si kryetar i degës së Partisë Liberale në rrethin e nëntë dhe u nominua për zgjedhjet e Parlamentit të Cyrihut.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Në zgjedhjet e vitit 2018, me fitoren e tij, duke hyrë si shqiptari i parë në parlamentin e qytetit të Cyrihut, Përparimi na bëri krenarë si komunitet.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'Edhe pse Avdili ka gjasa të marrë mbështetje nga komunitete të tjera duke pasur parasysh parimet e tij të qëndrueshme liberale, mbështetja më e fortë pritet nga komuniteti shqiptar në Cyrih.' }] },
+            { type: 'paragraph', children: [{ type: 'text', text: 'I urojmë shëndet, sukses dhe fitore në fushatën e tij për një vend në parlament!' }] },
+          ],
+          direction: 'ltr',
+          format: '',
+          indent: 0,
+          version: 1,
+        },
+      },
+      publishedAt: '2021-08-10T00:00:00.000Z',
+      categories: [diasporaCategory.id],
+      _status: 'published',
+    },
+    locale: 'sq',
+  })
+
+  await payload.update({
+    collection: 'news',
+    id: news8.id,
+    data: {
+      title: 'ALBANISCHE GEMEINSCHAFT IN ZÜRICH UNTERSTÜTZT KANDIDATUR VON PËRPARIM AVDILI!',
+      summary: 'Die albanische Gemeinschaft in Zürich drückt ihre Unterstützung für die Kandidatur von Përparim Avdili für die Zürcher Parlamentswahlen aus.',
+    },
+    locale: 'de',
+  })
+
   console.log('News articles created.')
 
   // Create events
@@ -355,8 +511,6 @@ async function seed() {
           children: [
             { type: 'heading', tag: 'h2', children: [{ type: 'text', text: 'Bashkësia Shqiptare në Zvicër (BSHZ)' }] },
             { type: 'paragraph', children: [{ type: 'text', text: '«Bashkësia Shqiptare në Zvicër» është organizata kryesore që përfaqëson interesat e komunitetit shqiptar në Zvicër. E themeluar më 04.04.1999 në Bernë të Zvicrës, organizata jonë punon për integrimin, kulturën dhe ruajtjen e identitetit kombëtar të shqiptarëve në Zvicër.' }] },
-            { type: 'heading', tag: 'h3', children: [{ type: 'text', text: 'Misioni ynë' }] },
-            { type: 'paragraph', children: [{ type: 'text', text: 'Ne punojmë për forcimin e lidhjeve mes shqiptarëve në Zvicër, promovimin e kulturës dhe traditës shqiptare, si dhe mbështetjen e integrimit të suksesshëm në shoqërinë zvicerane duke ruajtur identitetin tonë kombëtar.' }] },
             { type: 'heading', tag: 'h3', children: [{ type: 'text', text: 'Veprimtaria jonë' }] },
             { type: 'paragraph', children: [{ type: 'text', text: 'Bashkësia Shqiptare në Zvicër organizon aktivitete të ndryshme kulturore, edukative dhe sociale për komunitetin shqiptar. Ne botojmë gazetën ALBFORUM, organizojmë festa kombëtare, takime të diasporës dhe ofrojmë shërbime të ndryshme për anëtarët tanë, përfshirë këshillim për sigurime shëndetësore përmes marrëveshjes sonë me Helsana.' }] },
             { type: 'heading', tag: 'h3', children: [{ type: 'text', text: 'Kontakti' }] },
@@ -459,7 +613,7 @@ async function seed() {
 
   console.log('\nSeeding complete! Content added:')
   console.log('- 3 categories (sq + de)')
-  console.log('- 4 news articles (sq + de)')
+  console.log('- 8 news articles (sq + de)')
   console.log('- 3 events (sq + de)')
   console.log('- 1 about page (sq + de)')
   console.log('- 1 feuilleton article (sq + de)')

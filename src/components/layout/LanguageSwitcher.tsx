@@ -9,7 +9,7 @@ export function LanguageSwitcher() {
 
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split('/')
-    if (['sq', 'de', 'fr'].includes(segments[1])) {
+    if (['sq', 'de', 'fr', 'it', 'en'].includes(segments[1])) {
       segments[1] = newLocale
     } else {
       segments.splice(1, 0, newLocale)
@@ -18,7 +18,7 @@ export function LanguageSwitcher() {
     window.location.href = segments.join('/') || `/${newLocale}`
   }
 
-  const locales = ['sq', 'de', 'fr'] as const
+  const locales = ['sq', 'de', 'fr', 'it', 'en'] as const
 
   return (
     <div className="flex items-center gap-0.5 text-xs">

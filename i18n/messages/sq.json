@@ -8,6 +8,8 @@
     "newsletter": "Newsletter",
     "register": "Regjistrimi në Bashkësi",
     "about": "Rreth nesh",
+    "insurance": "Sigurimi Kolektiv",
+    "statuti": "Statuti",
     "contact": "Kontakt"
   },
   "home": {
@@ -90,6 +92,11 @@
   },
   "about": {
     "title": "Rreth nesh"
+  },
+  "statuti": {
+    "title": "Programi dhe Statuti",
+    "program_subtitle": "Pjesë nga Programi dhe Statuti",
+    "history_subtitle": "Historia e Statutit"
   },
   "common": {
     "loading": "Duke u ngarkuar...",

@@ -8,6 +8,8 @@
     "newsletter": "Newsletter",
     "register": "Inscription",
     "about": "A propos",
+    "insurance": "Assurance collective",
+    "statuti": "Statuts",
     "contact": "Contact"
   },
   "home": {
@@ -90,6 +92,11 @@
   },
   "about": {
     "title": "A propos de nous"
+  },
+  "statuti": {
+    "title": "Programme et Statuts",
+    "program_subtitle": "Extraits du Programme et des Statuts",
+    "history_subtitle": "Histoire des Statuts"
   },
   "common": {
     "loading": "Chargement...",

@@ -20,7 +20,7 @@ export default async function EventDetailPage({
   const result = await payload.find({
     collection: 'events',
     where: { slug: { equals: slug } },
-    locale: locale as 'sq' | 'de' | 'fr',
+    locale: locale as 'sq' | 'de' | 'fr' | 'it' | 'en',
     limit: 1,
   })
 

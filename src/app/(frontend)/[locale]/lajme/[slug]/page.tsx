@@ -19,7 +19,7 @@ export default async function NewsArticlePage({
   const result = await payload.find({
     collection: 'news',
     where: { slug: { equals: slug } },
-    locale: locale as 'sq' | 'de' | 'fr',
+    locale: locale as 'sq' | 'de' | 'fr' | 'it' | 'en',
     limit: 1,
   })
 
