@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
+import { getMediaUrl } from '@/utilities/getMediaUrl'
 
 export default async function FeuilletonPage({
   params,
@@ -42,7 +43,7 @@ export default async function FeuilletonPage({
                 {article.featuredImage && typeof article.featuredImage === 'object' && (
                   <div className="aspect-video bg-bg-alt overflow-hidden">
                     <img
-                      src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/${article.featuredImage.filename}`}
+                      src={getMediaUrl(article.featuredImage)}
                       alt={article.featuredImage.alt || article.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

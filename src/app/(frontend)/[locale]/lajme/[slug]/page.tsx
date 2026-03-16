@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
 import { RichText } from '@/components/RichText'
+import { getMediaUrl } from '@/utilities/getMediaUrl'
 
 export default async function NewsArticlePage({
   params,
@@ -34,7 +35,7 @@ export default async function NewsArticlePage({
       {article.featuredImage && typeof article.featuredImage === 'object' && (
         <div className="aspect-video rounded-xl overflow-hidden mb-8">
           <img
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/${article.featuredImage.filename}`}
+            src={getMediaUrl(article.featuredImage)}
             alt={(article.featuredImage as any).alt || (article.title as string)}
             className="w-full h-full object-cover"
           />

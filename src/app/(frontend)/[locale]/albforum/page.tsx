@@ -1,6 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
+import { getMediaUrl } from '@/utilities/getMediaUrl'
 
 export default async function AlbforumPage({
   params,
@@ -28,7 +29,7 @@ export default async function AlbforumPage({
           {result.docs.map((issue: any) => {
             const pdfUrl =
               issue.pdfFile && typeof issue.pdfFile === 'object'
-                ? `${process.env.NEXT_PUBLIC_SERVER_URL}/media/${issue.pdfFile.filename}`
+                ? getMediaUrl(issue.pdfFile)
                 : null
 
             return (
@@ -39,7 +40,7 @@ export default async function AlbforumPage({
                 {issue.coverImage && typeof issue.coverImage === 'object' ? (
                   <div className="aspect-[3/4] bg-bg-alt overflow-hidden">
                     <img
-                      src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/${issue.coverImage.filename}`}
+                      src={getMediaUrl(issue.coverImage)}
                       alt={issue.coverImage.alt || issue.title}
                       className="w-full h-full object-cover"
                     />

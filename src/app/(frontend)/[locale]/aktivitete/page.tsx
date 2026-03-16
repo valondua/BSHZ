@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
+import { getMediaUrl } from '@/utilities/getMediaUrl'
 
 export default async function ActivitiesPage({
   params,
@@ -42,7 +43,7 @@ export default async function ActivitiesPage({
                 {event.featuredImage && typeof event.featuredImage === 'object' && (
                   <div className="aspect-video bg-bg-alt overflow-hidden">
                     <img
-                      src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/${event.featuredImage.filename}`}
+                      src={getMediaUrl(event.featuredImage)}
                       alt={event.featuredImage.alt || event.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />

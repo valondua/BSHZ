@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
 import { RichText } from '@/components/RichText'
+import { getMediaUrl } from '@/utilities/getMediaUrl'
 
 export default async function EventDetailPage({
   params,
@@ -35,7 +36,7 @@ export default async function EventDetailPage({
       {event.featuredImage && typeof event.featuredImage === 'object' && (
         <div className="aspect-video rounded-xl overflow-hidden mb-8">
           <img
-            src={`${process.env.NEXT_PUBLIC_SERVER_URL}/media/${(event.featuredImage as any).filename}`}
+            src={getMediaUrl(event.featuredImage as any)}
             alt={(event.featuredImage as any).alt || (event.title as string)}
             className="w-full h-full object-cover"
           />
