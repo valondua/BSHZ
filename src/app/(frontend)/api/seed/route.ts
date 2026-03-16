@@ -10,14 +10,54 @@ function checkSecret(secret: string) {
 
 export async function PUT(request: Request) {
   try {
-    const { secret, email, password } = await request.json()
+    const { secret, email, password, action, updates } = await request.json()
     if (!checkSecret(secret)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     const payload = await getPayload({ config })
 
-    // Check if user exists
+    // Bulk translation update via direct SQL
+    if (action === 'translate') {
+      const db = payload.db
+      const results = []
+
+      for (const update of updates) {
+        try {
+          const { id, locale, title, summary } = update
+
+          // Check if locale row exists
+          const existing = await db.drizzle.execute({
+            sql: `SELECT id FROM news_locales WHERE _parent_id = ${id} AND _locale = '${locale}'`,
+          })
+
+          if (existing.rows && existing.rows.length > 0) {
+            // Update existing locale row
+            await db.drizzle.execute({
+              sql: `UPDATE news_locales SET title = '${title.replace(/'/g, "''")}', summary = '${(summary || '').replace(/'/g, "''")}' WHERE _parent_id = ${id} AND _locale = '${locale}'`,
+            })
+            results.push({ id, locale, status: 'updated' })
+          } else {
+            // Get the SQ content to use as base for the new locale
+            const sqRow = await db.drizzle.execute({
+              sql: `SELECT content FROM news_locales WHERE _parent_id = ${id} AND _locale = 'sq'`,
+            })
+            const sqContent = sqRow.rows?.[0]?.content || '{}'
+
+            await db.drizzle.execute({
+              sql: `INSERT INTO news_locales (title, summary, content, _locale, _parent_id) VALUES ('${title.replace(/'/g, "''")}', '${(summary || '').replace(/'/g, "''")}', '${typeof sqContent === 'string' ? sqContent.replace(/'/g, "''") : JSON.stringify(sqContent).replace(/'/g, "''")}', '${locale}', ${id})`,
+            })
+            results.push({ id, locale, status: 'created' })
+          }
+        } catch (e) {
+          results.push({ id: update.id, locale: update.locale, status: 'error', error: String(e).substring(0, 200) })
+        }
+      }
+
+      return NextResponse.json({ success: true, results })
+    }
+
+    // Original user create/update logic
     const existing = await payload.find({
       collection: 'users',
       where: { email: { equals: email } },
@@ -25,7 +65,6 @@ export async function PUT(request: Request) {
     })
 
     if (existing.docs.length > 0) {
-      // Update password
       await payload.update({
         collection: 'users',
         id: existing.docs[0].id,
@@ -33,7 +72,6 @@ export async function PUT(request: Request) {
       })
       return NextResponse.json({ success: true, action: 'updated', email })
     } else {
-      // Create new admin
       await payload.create({
         collection: 'users',
         data: { email, password, role: 'admin' },
@@ -46,7 +84,6 @@ export async function PUT(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  // Repurposed as "create news articles" endpoint
   try {
     const { secret, articles } = await request.json()
     if (!checkSecret(secret)) {
@@ -58,7 +95,6 @@ export async function DELETE(request: Request) {
 
     for (const article of articles) {
       try {
-        // Check if slug already exists
         const existing = await payload.find({
           collection: article.collection || 'news',
           where: { slug: { equals: article.slug } },
@@ -70,14 +106,12 @@ export async function DELETE(request: Request) {
           continue
         }
 
-        // Create in Albanian
         const doc = await payload.create({
           collection: article.collection || 'news',
           data: article.sq,
           locale: 'sq',
         })
 
-        // Add German translation
         if (article.de) {
           await payload.update({
             collection: article.collection || 'news',
@@ -123,7 +157,6 @@ export async function PATCH(request: Request) {
 
 export async function POST(request: Request) {
   try {
-    // Simple auth check
     const { secret } = await request.json()
     if (!checkSecret(secret)) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -133,7 +166,6 @@ export async function POST(request: Request) {
 
     const results: Record<string, unknown> = {}
 
-    // Upload images from bshz.ch
     const imageMap = [
       { url: 'https://bshz.ch/wp-content/uploads/2026/02/images-16.jpeg', filename: 'kosovo-day.jpeg', alt: 'Dita e Pavarësisë së Kosovës', newsSlug: 'urime-dita-e-pavarsise-se-kosoves' },
       { url: 'https://bshz.ch/wp-content/uploads/2025/08/IMG_6328-1-scaled.jpg', filename: 'helsana.jpg', alt: 'Helsana marrëveshje', newsSlug: 'sigurimi-helsana-flet-shqip' },
@@ -145,16 +177,12 @@ export async function POST(request: Request) {
 
     for (const img of imageMap) {
       try {
-        // Fetch image from bshz.ch (server-side, no CORS)
         const imgRes = await fetch(img.url)
         const buffer = Buffer.from(await imgRes.arrayBuffer())
 
-        // Create media via Payload local API
         const media = await payload.create({
           collection: 'media',
-          data: {
-            alt: img.alt,
-          },
+          data: { alt: img.alt },
           file: {
             data: buffer,
             mimetype: imgRes.headers.get('content-type') || 'image/jpeg',
@@ -163,7 +191,6 @@ export async function POST(request: Request) {
           },
         })
 
-        // Find and update news article
         const newsQuery = await payload.find({
           collection: 'news',
           where: { slug: { equals: img.newsSlug } },
@@ -186,7 +213,6 @@ export async function POST(request: Request) {
 
     results.images = imageResults
 
-    // Seed ALBFORUM issues
     const albforumResults = []
     const issues = [
       { title: 'ALBFORUM Nr. 25', issueNumber: 25, publishedAt: '2025-12-01T00:00:00.000Z', description: 'Numri 25 i gazetës ALBFORUM' },
