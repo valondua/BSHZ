@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
+import { sql } from 'drizzle-orm'
 import config from '@payload-config'
 
 // Temporary seed secret - will be removed after seeding
@@ -27,26 +28,26 @@ export async function PUT(request: Request) {
           const { id, locale, title, summary } = update
 
           // Check if locale row exists
-          const existing = await db.drizzle.execute({
-            sql: `SELECT id FROM news_locales WHERE _parent_id = ${id} AND _locale = '${locale}'`,
-          })
+          const existing = await db.drizzle.execute(
+            sql.raw(`SELECT id FROM news_locales WHERE _parent_id = ${id} AND _locale = '${locale}'`)
+          )
 
           if (existing.rows && existing.rows.length > 0) {
             // Update existing locale row
-            await db.drizzle.execute({
-              sql: `UPDATE news_locales SET title = '${title.replace(/'/g, "''")}', summary = '${(summary || '').replace(/'/g, "''")}' WHERE _parent_id = ${id} AND _locale = '${locale}'`,
-            })
+            await db.drizzle.execute(
+              sql.raw(`UPDATE news_locales SET title = '${title.replace(/'/g, "''")}', summary = '${(summary || '').replace(/'/g, "''")}' WHERE _parent_id = ${id} AND _locale = '${locale}'`)
+            )
             results.push({ id, locale, status: 'updated' })
           } else {
             // Get the SQ content to use as base for the new locale
-            const sqRow = await db.drizzle.execute({
-              sql: `SELECT content FROM news_locales WHERE _parent_id = ${id} AND _locale = 'sq'`,
-            })
-            const sqContent = sqRow.rows?.[0]?.content || '{}'
+            const sqRow = await db.drizzle.execute(
+              sql.raw(`SELECT content FROM news_locales WHERE _parent_id = ${id} AND _locale = 'sq'`)
+            )
+            const sqContent = (sqRow.rows as any)?.[0]?.content || '{}'
 
-            await db.drizzle.execute({
-              sql: `INSERT INTO news_locales (title, summary, content, _locale, _parent_id) VALUES ('${title.replace(/'/g, "''")}', '${(summary || '').replace(/'/g, "''")}', '${typeof sqContent === 'string' ? sqContent.replace(/'/g, "''") : JSON.stringify(sqContent).replace(/'/g, "''")}', '${locale}', ${id})`,
-            })
+            await db.drizzle.execute(
+              sql.raw(`INSERT INTO news_locales (title, summary, content, _locale, _parent_id) VALUES ('${title.replace(/'/g, "''")}', '${(summary || '').replace(/'/g, "''")}', '${typeof sqContent === 'string' ? sqContent.replace(/'/g, "''") : JSON.stringify(sqContent).replace(/'/g, "''")}', '${locale}', ${id})`)
+            )
             results.push({ id, locale, status: 'created' })
           }
         } catch (e) {
