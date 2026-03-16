@@ -28,12 +28,26 @@ export default async function ShqiptaretNeZvicerPage({
     <>
       {/* Hero */}
       <section className="relative h-72 md:h-96 overflow-hidden">
-        <img
-          src="/images/topic-shqiptaret.png"
-          alt={tx(locale, { sq: 'Shqiptaret ne Zvicer', de: 'Albaner in der Schweiz', fr: 'Les Albanais en Suisse', it: 'Gli albanesi in Svizzera', en: 'Albanians in Switzerland' })}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        {/* Albanian & Swiss flags side by side */}
+        <div className="absolute inset-0 flex">
+          {/* Albanian flag - left half */}
+          <div className="w-1/2 h-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/flag-albania.png"
+              alt="Albanian flag"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          {/* Swiss flag - right half */}
+          <div className="w-1/2 h-full bg-[#ff0000] flex items-center justify-center">
+            <svg viewBox="0 0 32 32" className="w-2/5 h-3/5" xmlns="http://www.w3.org/2000/svg">
+              <rect x="13" y="6" width="6" height="20" fill="#fff" />
+              <rect x="6" y="13" width="20" height="6" fill="#fff" />
+            </svg>
+          </div>
+        </div>
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-10">
           <div>
             <Link
