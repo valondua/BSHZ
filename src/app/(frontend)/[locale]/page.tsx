@@ -236,7 +236,24 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <Link href={`${prefix}/temat/shqiptaret-ne-zvicer`} className="md:col-span-2 relative rounded-2xl overflow-hidden group cursor-pointer h-64 md:h-80 block">
-            <img src="/images/topic-shqiptaret.png" alt="" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 flex">
+              {/* Albanian flag - left half */}
+              <div className="w-1/2 h-full bg-[#e41e20] flex items-center justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/flag-albania.png"
+                  alt="Albanian flag"
+                  className="h-3/5 w-auto object-contain"
+                />
+              </div>
+              {/* Swiss flag - right half */}
+              <div className="w-1/2 h-full bg-[#ff0000] flex items-center justify-center">
+                <svg viewBox="0 0 32 32" className="w-2/5 h-3/5" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="13" y="6" width="6" height="20" fill="#fff" />
+                  <rect x="6" y="13" width="20" height="6" fill="#fff" />
+                </svg>
+              </div>
+            </div>
             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
               <h3 className="text-white text-xl md:text-2xl font-bold leading-snug">

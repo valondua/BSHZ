@@ -31,12 +31,12 @@ export default async function ShqiptaretNeZvicerPage({
         {/* Albanian & Swiss flags side by side */}
         <div className="absolute inset-0 flex">
           {/* Albanian flag - left half */}
-          <div className="w-1/2 h-full">
+          <div className="w-1/2 h-full bg-[#e41e20] flex items-center justify-center">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/flag-albania.png"
               alt="Albanian flag"
-              className="h-full w-full object-cover"
+              className="h-3/4 w-auto object-contain"
             />
           </div>
           {/* Swiss flag - right half */}
