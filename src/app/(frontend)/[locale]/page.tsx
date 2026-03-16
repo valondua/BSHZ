@@ -47,12 +47,6 @@ function HeroSection({ t, locale }: { t: (key: string) => string; locale: string
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               </Link>
               <Link
-                href={`${prefix}/lajme`}
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-lg text-sm border border-white/20 hover:bg-white/20 transition-all"
-              >
-                {t('cta_news')}
-              </Link>
-              <Link
                 href={`${prefix}/albforum`}
                 className="inline-flex items-center gap-2 bg-accent text-white font-semibold px-6 py-3 rounded-lg text-sm hover:bg-accent-light transition-all hover:shadow-lg"
               >

@@ -41,7 +41,7 @@ export default async function ShqiptaretNeZvicerPage({
           </div>
           {/* Swiss flag - right half */}
           <div className="w-1/2 h-full bg-[#ff0000] flex items-center justify-center">
-            <svg viewBox="0 0 32 32" className="w-2/5 h-3/5" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 32 32" className="w-3/5 h-4/5" xmlns="http://www.w3.org/2000/svg">
               <rect x="13" y="6" width="6" height="20" fill="#fff" />
               <rect x="6" y="13" width="20" height="6" fill="#fff" />
             </svg>

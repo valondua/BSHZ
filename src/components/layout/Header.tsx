@@ -10,7 +10,6 @@ const navLinks: { key: string; href: string; external?: boolean }[] = [
   { key: 'activities', href: '/aktivitete' },
   { key: 'news', href: '/lajme' },
   { key: 'feuilleton', href: '/fejton' },
-  { key: 'albforum', href: '/albforum' },
   { key: 'insurance', href: '/sigurimi-kolektiv' },
   { key: 'register', href: '/regjistrimi' },
   { key: 'statuti', href: '/statuti' },
