@@ -20,38 +20,46 @@ export async function PUT(request: Request) {
 
     // Bulk translation update via direct SQL
     if (action === 'translate') {
-      const db = payload.db
       const results = []
+
+      // First, list tables to find correct locale table name
+      if (updates.length === 1 && updates[0].id === 0) {
+        const tables = await payload.db.drizzle.execute(
+          sql`SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name LIKE '%locale%' ORDER BY table_name`
+        )
+        return NextResponse.json({ tables: tables.rows })
+      }
 
       for (const update of updates) {
         try {
-          const { id, locale, title, summary } = update
+          const { id, locale, title, summary, tableName } = update
+          const table = tableName || 'news_locales'
 
-          // Check if locale row exists
-          const existing = await db.drizzle.execute(
-            sql.raw(`SELECT id FROM news_locales WHERE _parent_id = ${id} AND _locale = '${locale}'`)
+          // Use parameterized queries via sql template
+          const existing = await payload.db.drizzle.execute(
+            sql`SELECT id FROM ${sql.raw(table)} WHERE "_parent_id" = ${id} AND "_locale" = ${locale}`
           )
 
           if (existing.rows && existing.rows.length > 0) {
-            // Update existing locale row
-            await db.drizzle.execute(
-              sql.raw(`UPDATE news_locales SET title = '${title.replace(/'/g, "''")}', summary = '${(summary || '').replace(/'/g, "''")}' WHERE _parent_id = ${id} AND _locale = '${locale}'`)
+            await payload.db.drizzle.execute(
+              sql`UPDATE ${sql.raw(table)} SET title = ${title}, summary = ${summary || ''} WHERE "_parent_id" = ${id} AND "_locale" = ${locale}`
             )
             results.push({ id, locale, status: 'updated' })
           } else {
             // Get the SQ content to use as base for the new locale
-            const sqRow = await db.drizzle.execute(
-              sql.raw(`SELECT content FROM news_locales WHERE _parent_id = ${id} AND _locale = 'sq'`)
+            const sqRow = await payload.db.drizzle.execute(
+              sql`SELECT content FROM ${sql.raw(table)} WHERE "_parent_id" = ${id} AND "_locale" = 'sq'`
             )
-            const sqContent = (sqRow.rows as any)?.[0]?.content || '{}'
+            const sqContent = (sqRow.rows as any)?.[0]?.content
+            const contentStr = typeof sqContent === 'string' ? sqContent : JSON.stringify(sqContent || '{}')
 
-            await db.drizzle.execute(
-              sql.raw(`INSERT INTO news_locales (title, summary, content, _locale, _parent_id) VALUES ('${title.replace(/'/g, "''")}', '${(summary || '').replace(/'/g, "''")}', '${typeof sqContent === 'string' ? sqContent.replace(/'/g, "''") : JSON.stringify(sqContent).replace(/'/g, "''")}', '${locale}', ${id})`)
+            await payload.db.drizzle.execute(
+              sql`INSERT INTO ${sql.raw(table)} (title, summary, content, "_locale", "_parent_id") VALUES (${title}, ${summary || ''}, ${contentStr}::jsonb, ${locale}, ${id})`
             )
             results.push({ id, locale, status: 'created' })
           }
         } catch (e) {
-          results.push({ id: update.id, locale: update.locale, status: 'error', error: String(e).substring(0, 200) })
+          results.push({ id: update.id, locale: update.locale, status: 'error', error: String(e).substring(0, 300) })
         }
       }
 
