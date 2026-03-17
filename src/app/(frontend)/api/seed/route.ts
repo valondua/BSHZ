@@ -35,29 +35,28 @@ export async function PUT(request: Request) {
 
       for (const update of updates) {
         try {
-          const { id, locale, title, summary, tableName } = update
-          const table = tableName || 'news_locales'
+          const { id, locale, title, summary } = update
 
-          // Use parameterized queries via sql template
+          // Cast locale to enum type and use raw SQL for locale comparison
           const existing = await payload.db.drizzle.execute(
-            sql`SELECT id FROM ${sql.raw(table)} WHERE "_parent_id" = ${id} AND "_locale" = ${locale}`
+            sql`SELECT id FROM news_locales WHERE _parent_id = ${id} AND _locale = ${sql.raw(`'${locale}'::_locales`)}`
           )
 
           if (existing.rows && existing.rows.length > 0) {
             await payload.db.drizzle.execute(
-              sql`UPDATE ${sql.raw(table)} SET title = ${title}, summary = ${summary || ''} WHERE "_parent_id" = ${id} AND "_locale" = ${locale}`
+              sql`UPDATE news_locales SET title = ${title}, summary = ${summary || ''} WHERE _parent_id = ${id} AND _locale = ${sql.raw(`'${locale}'::_locales`)}`
             )
             results.push({ id, locale, status: 'updated' })
           } else {
             // Get the SQ content to use as base for the new locale
             const sqRow = await payload.db.drizzle.execute(
-              sql`SELECT content FROM ${sql.raw(table)} WHERE "_parent_id" = ${id} AND "_locale" = 'sq'`
+              sql`SELECT content FROM news_locales WHERE _parent_id = ${id} AND _locale = 'sq'::_locales`
             )
             const sqContent = (sqRow.rows as any)?.[0]?.content
             const contentStr = typeof sqContent === 'string' ? sqContent : JSON.stringify(sqContent || '{}')
 
             await payload.db.drizzle.execute(
-              sql`INSERT INTO ${sql.raw(table)} (title, summary, content, "_locale", "_parent_id") VALUES (${title}, ${summary || ''}, ${contentStr}::jsonb, ${locale}, ${id})`
+              sql`INSERT INTO news_locales (title, summary, content, _locale, _parent_id) VALUES (${title}, ${summary || ''}, ${contentStr}::jsonb, ${sql.raw(`'${locale}'::_locales`)}, ${id})`
             )
             results.push({ id, locale, status: 'created' })
           }
