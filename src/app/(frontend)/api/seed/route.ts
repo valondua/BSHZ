@@ -22,12 +22,15 @@ export async function PUT(request: Request) {
     if (action === 'translate') {
       const results = []
 
-      // First, list tables to find correct locale table name
+      // Discovery mode: list tables or columns
       if (updates.length === 1 && updates[0].id === 0) {
         const tables = await payload.db.drizzle.execute(
           sql`SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name LIKE '%locale%' ORDER BY table_name`
         )
-        return NextResponse.json({ tables: tables.rows })
+        const columns = await payload.db.drizzle.execute(
+          sql`SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'news_locales' ORDER BY ordinal_position`
+        )
+        return NextResponse.json({ tables: tables.rows, columns: columns.rows })
       }
 
       for (const update of updates) {
