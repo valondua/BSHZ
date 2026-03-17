@@ -3,10 +3,8 @@ import { getPayload } from 'payload'
 import { sql } from 'drizzle-orm'
 import config from '@payload-config'
 
-// Temporary seed secret - will be removed after seeding
-const SEED_SECRET = 'bshz-temp-seed-2024-remove-after-use'
 function checkSecret(secret: string) {
-  return secret === process.env.PAYLOAD_SECRET || secret === SEED_SECRET
+  return secret === process.env.PAYLOAD_SECRET
 }
 
 export async function PUT(request: Request) {

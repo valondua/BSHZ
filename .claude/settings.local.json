@@ -51,7 +51,9 @@
       "Bash(gh api:*)",
       "Bash(python3:*)",
       "Bash(npm ls:*)",
-      "WebFetch(domain:next-intl.dev)"
+      "WebFetch(domain:next-intl.dev)",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"next dev\")"
     ]
   }
 }
