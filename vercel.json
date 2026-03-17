@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "src/app/(payload)/admin/**": {
+      "maxDuration": 60
+    },
+    "src/app/(payload)/api/**": {
+      "maxDuration": 60
+    }
+  }
+}
