@@ -22,15 +22,15 @@ export async function PUT(request: Request) {
     if (action === 'translate') {
       const results = []
 
-      // Discovery mode: list tables or columns
+      // Discovery mode: list tables/columns/enums
       if (updates.length === 1 && updates[0].id === 0) {
-        const tables = await payload.db.drizzle.execute(
-          sql`SELECT table_name FROM information_schema.tables WHERE table_schema = 'public' AND table_name LIKE '%locale%' ORDER BY table_name`
+        const enums = await payload.db.drizzle.execute(
+          sql`SELECT typname, enumlabel FROM pg_enum JOIN pg_type ON pg_enum.enumtypid = pg_type.oid ORDER BY typname, enumsortorder`
         )
-        const columns = await payload.db.drizzle.execute(
-          sql`SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'news_locales' ORDER BY ordinal_position`
+        const sample = await payload.db.drizzle.execute(
+          sql`SELECT id, _locale, _parent_id, LEFT(title, 40) as title_preview FROM news_locales LIMIT 10`
         )
-        return NextResponse.json({ tables: tables.rows, columns: columns.rows })
+        return NextResponse.json({ enums: enums.rows, sample: sample.rows })
       }
 
       for (const update of updates) {
