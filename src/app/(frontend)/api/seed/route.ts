@@ -22,15 +22,30 @@ export async function PUT(request: Request) {
     if (action === 'translate') {
       const results = []
 
-      // Discovery mode: list tables/columns/enums
-      if (updates.length === 1 && updates[0].id === 0) {
-        const enums = await payload.db.drizzle.execute(
-          sql`SELECT typname, enumlabel FROM pg_enum JOIN pg_type ON pg_enum.enumtypid = pg_type.oid ORDER BY typname, enumsortorder`
-        )
-        const sample = await payload.db.drizzle.execute(
-          sql`SELECT id, _locale, _parent_id, LEFT(title, 40) as title_preview FROM news_locales LIMIT 10`
-        )
-        return NextResponse.json({ enums: enums.rows, sample: sample.rows })
+      // Migration mode: add missing locales to enum
+      if (updates.length === 1 && updates[0].id === -1) {
+        const migrationResults = []
+        const localesToAdd = ['fr', 'it', 'en']
+        for (const loc of localesToAdd) {
+          try {
+            await payload.db.drizzle.execute(sql.raw(`ALTER TYPE _locales ADD VALUE IF NOT EXISTS '${loc}'`))
+            migrationResults.push({ locale: loc, status: 'added' })
+          } catch (e) {
+            migrationResults.push({ locale: loc, status: 'error', error: String(e).substring(0, 200) })
+          }
+        }
+        // Also update version-related enums
+        for (const enumName of ['enum__news_v_published_locale', 'enum__events_v_published_locale', 'enum__feuilleton_v_published_locale', 'enum__pages_v_published_locale', 'enum_newsletter_subscribers_locale']) {
+          for (const loc of localesToAdd) {
+            try {
+              await payload.db.drizzle.execute(sql.raw(`ALTER TYPE ${enumName} ADD VALUE IF NOT EXISTS '${loc}'`))
+              migrationResults.push({ enum: enumName, locale: loc, status: 'added' })
+            } catch (e) {
+              migrationResults.push({ enum: enumName, locale: loc, status: 'error', error: String(e).substring(0, 100) })
+            }
+          }
+        }
+        return NextResponse.json({ success: true, migration: migrationResults })
       }
 
       for (const update of updates) {
