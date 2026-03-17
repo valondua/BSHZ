@@ -1,5 +1,5 @@
 import { Link } from '@/i18n/navigation'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/i18n/server'
 import { getPayload } from '@/utilities/getPayload'
 import { formatDate } from '@/utilities/formatDate'
 import { getMediaUrl } from '@/utilities/getMediaUrl'

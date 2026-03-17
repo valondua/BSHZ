@@ -1,5 +1,5 @@
-import { NextIntlClientProvider, useMessages } from 'next-intl'
-import { getMessages, getTranslations } from 'next-intl/server'
+import { NextIntlClientProvider } from 'next-intl'
+import { getMessages, getTranslations } from '@/i18n/server'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import '@/app/globals.css'

@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server'
+import { getTranslations } from '@/i18n/server'
 import { RegistrationForm } from '@/components/forms/RegistrationForm'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
