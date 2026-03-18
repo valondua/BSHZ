@@ -1,9 +1,10 @@
 /* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
 /* DO NOT MODIFY IT BECAUSE IT COULD BE REWRITTEN AT ANY TIME. */
-import config from '@payload-config'
+import fullConfig from '@payload-config'
 import { RootLayout, handleServerFunctions } from '@payloadcms/next/layouts'
 import React from 'react'
 
+import adminConfig from '@/payload.admin.config'
 import { importMap } from './admin/importMap'
 import '@payloadcms/next/css'
 
@@ -17,13 +18,13 @@ const serverFunction = async function (args: { name: string; args: Record<string
   'use server'
   return handleServerFunctions({
     ...args,
-    config,
+    config: fullConfig,
     importMap,
   })
 }
 
 const Layout = ({ children }: Args) => (
-  <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
+  <RootLayout config={adminConfig} importMap={importMap} serverFunction={serverFunction}>
     {children}
   </RootLayout>
 )

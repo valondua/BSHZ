@@ -1,5 +1,5 @@
 import { buildPayloadAppConfig } from './payload.base'
 
 export default buildPayloadAppConfig({
-  includeBlobStorage: true,
+  includeBlobStorage: false,
 })
